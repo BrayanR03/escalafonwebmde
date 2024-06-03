@@ -1,4 +1,6 @@
-
+@extends('layout')
+@section('title','Cargos')
+@section('content')
 <div class="cargos">
     <h2>Gestión de Cargos</h2>
     
@@ -39,3 +41,5 @@
         </tbody>
     </table>
 </div>
+    
+@endsection

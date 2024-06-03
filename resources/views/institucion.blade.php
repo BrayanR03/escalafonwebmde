@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title','Instituciones')
 @section('content')
 <div class="instituciones">
     <h2>Gestión de Instituciones</h2>

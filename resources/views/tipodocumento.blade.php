@@ -1,4 +1,6 @@
-
+@extends('layout')
+@section('title','Tipo Documento')
+@section('content')
 <div class="tipodocumento">
     <h2>Gestión de Tipo Documento</h2>
     
@@ -39,3 +41,5 @@
         </tbody>
     </table>
 </div>
+    
+@endsection

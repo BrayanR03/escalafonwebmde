@@ -1,3 +1,6 @@
+@extends('layout')
+@section('title','Trabajadores')
+@section('content')
 <div class="workers-info">
     <div>
         <label for="trabajador-id">Trabajador ID:</label>
@@ -45,3 +48,5 @@
         <button>ACTUALIZAR</button>
     </div>
 </div>
+    
+@endsection

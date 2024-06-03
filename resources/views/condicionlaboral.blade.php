@@ -1,4 +1,6 @@
-
+@extends('layout')
+@section('title','Condicion Laboral')
+@section('content')
 <div class="condicionlaboral">
     <h2>Gestión de Condición Laboral</h2>
     
@@ -39,3 +41,5 @@
         </tbody>
     </table>
 </div>
+    
+@endsection

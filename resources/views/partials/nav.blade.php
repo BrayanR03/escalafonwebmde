@@ -10,24 +10,24 @@
 <body>
     <div class="container">
         <div class="header">
-            <button id="home-btn" class="header-button">SISTEMA DE GESTIÓN DE ESCALAFÓN</button>
+            <a id="home-btn" href="{{route('inicio')}}" class="header-button">SISTEMA DE GESTIÓN DE ESCALAFÓN</a>
             <label >Usuario: Administrador</label>
             <a class="cerrar-sesion" href="#">Cerrar Sesión</a>
         </div>
         <div class="sidebar">
-            <button id="movimientos-btn">Movimientos</button>
-            <button id="nivelestudios-btn">Nivel de Estudios</button>
-            <button id="institucion-btn">Institución</button>
-            <button id="estudios-btn">Estudios</button>
-            <button id="experiencia-btn">Experiencia Laboral</button>
-            <button id="trabajadores-btn">Trabajadores</button>
+            <a class="movimientos-btn" href="#">Movimientos</a>
+            <a class="nivelestudios-btn" href="{{route('nivelestudios.index')}}">Nivel de Estudios</a>
+            <a class="institucion-btn" href="{{route('institucion.index')}}">Institución</a>
+            <a class="estudios-btn" href="#">Estudios</a>
+            <a class="experiencia-btn" href="#">Experiencia Laboral</a>
+            <a class="trabajadores-btn" href="#">Trabajadores</a>
         </div>
         <div class="main">
             <div class="top-nav">
-                <a class="tipodocumento-btn" href="#">Tipo Movimiento</a>
-                <button id="tipomovimiento-btn">Tipo Movimiento</button>
-                <button id="condicionlaboral-btn">Condición Laboral</button>
-                <button id="cargos-btn">Cargos</button>
+                <a class="tipodocumento-btn" href="{{route('tipodocumento.index')}}">Tipo Documento</a>
+                <a class="tipomovimiento-btn" href="{{route('tipomovimiento.index')}}">Tipo Movimiento</a>
+                <a class="condicionlaboral-btn" href="{{route('condicionlaboral.index')}}">Condición Laboral</a>
+                <a class="cargos-btn" href="{{route('cargos.index')}}">Cargos</a>
                 <a class="areas-btn" href="{{route('areas.index')}}">Areas</a>
 
             </div> 

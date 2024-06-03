@@ -1,4 +1,6 @@
-
+@extends('layout')
+@section('title','Nivel Estudios')
+@section('content')
 <div class="nivelestudios">
     <h2>Gestión de Nivel Estudios</h2>
     
@@ -39,3 +41,5 @@
         </tbody>
     </table>
 </div>
+    
+@endsection

@@ -1,4 +1,6 @@
-
+@extends('layout')
+@section('title','Tipo Movimiento')
+@section('content')
 <div class="tipomovimiento">
     <h2>Gestión de Tipo Movimiento</h2>
     
@@ -39,3 +41,5 @@
         </tbody>
     </table>
 </div>
+    
+@endsection

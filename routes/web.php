@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::view('/','home');
-
+Route::view('/','home')->name('inicio');
+/*
 Route::get('/trabajadores', function () {
     return view('trabajadores');
 });
@@ -23,7 +23,7 @@ Route::get('/institucion', function () {
 Route::get('/cargos', function () {
     return view('cargos');
 });
-
+*/
 /*
 Route::get('/areas', function () {
     return view('areas');
@@ -31,8 +31,16 @@ Route::get('/areas', function () {
 //Route::resource('areas','App\Http\Controllers\AreasController')->names('areas');
 // web.php
 Route::resource('areas', 'App\Http\Controllers\AreasController')->names('areas');
+Route::get('/areas/search', [AreasController::class, 'search'])->name('areas.search');
+Route::resource('cargos','App\Http\Controllers\CargosController')->names('cargos');
+Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');
+Route::resource('institucion','App\Http\Controllers\InstitucionController')->names('institucion');
+Route::resource('nivelestudios','App\Http\Controllers\NivelEstudiosController')->names('nivelestudios');
+Route::resource('tipodocumento','App\Http\Controllers\TipoDocumentoController')->names('tipodocumento');
+Route::resource('tipomovimiento','App\Http\Controllers\TipoMovimientoController')->names('tipomovimiento');
 
 
+/*
 Route::get('/condicionlaboral', function () {
     return view('condicionlaboral');
 });
@@ -44,4 +52,4 @@ Route::get('/tipodocumento', function () {
 });
 Route::get('/nivelestudios', function () {
     return view('nivelestudios');
-});
+});*/
