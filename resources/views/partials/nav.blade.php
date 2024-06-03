@@ -12,7 +12,7 @@
         <div class="header">
             <button id="home-btn" class="header-button">SISTEMA DE GESTIÓN DE ESCALAFÓN</button>
             <label >Usuario: Administrador</label>
-            <a href="#">Cerrar Sesión</a>
+            <a class="cerrar-sesion" href="#">Cerrar Sesión</a>
         </div>
         <div class="sidebar">
             <button id="movimientos-btn">Movimientos</button>
@@ -24,24 +24,15 @@
         </div>
         <div class="main">
             <div class="top-nav">
-                <button id="tipodocumento-btn">Tipo Documento</button>
+                <a class="tipodocumento-btn" href="#">Tipo Movimiento</a>
                 <button id="tipomovimiento-btn">Tipo Movimiento</button>
                 <button id="condicionlaboral-btn">Condición Laboral</button>
                 <button id="cargos-btn">Cargos</button>
-                <button id="areas-btn">Áreas</button>
+                <a class="areas-btn" href="{{route('areas.index')}}">Areas</a>
+
             </div> 
-            <div class="content" id="content">
-                <div class="logo">
-                    LOGO MUNICIPALIDAD
-                    <br>
-                    SISTEMA DE GESTIÓN DE ESCALAFÓN
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            MUNICIPALIDAD DISTRITAL DE LA ESPERANZA - 2024  
-        </div>
-    </div>
+            
     
 </body>
+
 </html>

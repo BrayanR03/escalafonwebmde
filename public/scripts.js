@@ -48,6 +48,62 @@ document.addEventListener("DOMContentLoaded", function() {
 
             });
     });
+    /*document.getElementById("areas-btn").addEventListener("click", function() {
+        fetch('areas')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content").innerHTML = data;
+
+            });
+    });*/
+
+    document.getElementById("areas-btn").addEventListener("click", function(event) {
+        
+        fetch('areas')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content").innerHTML = data;
+                history.pushState(null, '', 'areas'); // Cambia la URL sin recargar la página
+                document.title = 'Áreas'; // Cambia el título de la página si es necesario
+            });
+    });
+    
+    
+
+
+    document.getElementById("condicionlaboral-btn").addEventListener("click", function() {
+        fetch('condicionlaboral')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content").innerHTML = data;
+                history.pushState(null, '', 'condicionlaboral'); // Cambia la URL sin recargar la página
+                document.title = 'Condicion Laboral';
+            });
+    });
+    document.getElementById("tipomovimiento-btn").addEventListener("click", function() {
+        fetch('/tipomovimiento')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content").innerHTML = data;
+
+            });
+    });
+    document.getElementById("tipodocumento-btn").addEventListener("click", function() {
+        fetch('/tipodocumento')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content").innerHTML = data;
+
+            });
+    });
+    document.getElementById("nivelestudios-btn").addEventListener("click", function() {
+        fetch('/nivelestudios')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content").innerHTML = data;
+
+            });
+    });
     document.getElementById("home-btn").addEventListener("click", function() {
         document.getElementById("content").innerHTML = defaultContent;
     });

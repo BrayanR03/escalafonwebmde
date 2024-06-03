@@ -5,5 +5,5 @@
 @section('title', 'HOME')
 
 @section('content')
-    
+    <p>HOLA</p>
 @endsection
