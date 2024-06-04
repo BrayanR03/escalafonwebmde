@@ -50,9 +50,9 @@ body {
 
 .header {
     grid-area: header;
-    background-color: #83c5be;
-    color: #000;
-    text-align: center;
+    background-color: gray;
+    color: white;
+    text-align: left;
     padding: 10px;
     font-weight: bold;
 }
@@ -64,16 +64,16 @@ body {
     font: inherit;
     cursor: pointer;
     text-align: center;
+    text-decoration: none;
     font-size: 24px;
 }
-
 .header-button:hover {
     text-decoration: underline;
 }
 
 .sidebar {
     /*grid-area: sidebar;*/
-    background-color: #dbd5d5;
+    background-color: gray;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -99,15 +99,16 @@ body {
 
 .main {
     grid-area: main;
-    background-color: #d3d3d3;
+    background-color: white;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
 .top-nav {
+    
     display: flex;
-    background-color: #dbd5d5;
+    background-color: gray;
     justify-content: space-around;
     padding: 10px;
 }
@@ -189,8 +190,9 @@ body {
 
 .footer {
     grid-area: footer;
-    background-color: #dbd5d5;
+    background-color: gray;
     text-align: center;
+    color: white;
     padding: 10px;
     font-size: 14px;
 }
@@ -623,3 +625,4 @@ body {
 .nivelestudios input[type="submit"]:hover {
     background-color: #0056b3;
 }
+

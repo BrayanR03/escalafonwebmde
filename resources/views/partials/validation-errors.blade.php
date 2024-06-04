@@ -1,7 +1,6 @@
-<ul>
+
     @if ($errors->any())
         @foreach ($errors->all() as $errors)
-            <li>{{$errors}}</li>
+        {{$errors}}
         @endforeach
     @endif
-</ul>

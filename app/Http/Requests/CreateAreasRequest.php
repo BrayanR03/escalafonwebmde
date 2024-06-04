@@ -26,7 +26,7 @@ class CreateAreasRequest extends FormRequest
         ];
     }
 
-    public function message()
+    public function messages()
     {
        return [
         'Nombre.required'=>'Debes Ingresar Un Nombre para el Área'

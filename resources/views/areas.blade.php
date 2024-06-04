@@ -1,7 +1,6 @@
 @extends('layout')
 @section('title','Areas')
 @section('content')
-
 <div class="areas">
     <h2>Gestión de Áreas</h2>
     
@@ -12,15 +11,18 @@
         <input type="submit" value="Buscar">
     </form>
 
+
     <!-- Formulario de registro y actualización -->
     
     <form action="{{route('areas.store')}}" method="POST">
-        @include('partials.validation-errors')
+        
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <label for="Nombre">Nombre del Área:</label>
-        <input type="text" id="Nombre" name="Nombre" placeholder="Ingrese el nombre del Área">
+        <label >Nombre del Área:</label>
+        <input type="text" id="Nombre" name="Nombre" required placeholder="Ingrese el nombre del Área">
+        @include('partials.validation-errors') <br>
         <input type="submit" value="Guardar">
     </form>
+
 
     <!-- Tabla de Area -->
     @if ($areas)
@@ -39,19 +41,19 @@
                     <td>{{$areas->Nombre}}</td>
                 
                     <td>
-                        <a href="#">Editar</a> |
+                        <a href="#"">Editar</a> 
                         <a href="#">Eliminar</a>
                     </td>
                 
             </tr>
+            
             @endforeach
+            
             <!-- Más filas de Areas aquí -->
         </tbody>
-    </table>    
+    </table>
     @endif
     
 </div>
-
-
     
 @endsection
