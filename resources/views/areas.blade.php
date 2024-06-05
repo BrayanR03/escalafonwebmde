@@ -22,7 +22,52 @@
         @include('partials.validation-errors') <br>
         <input type="submit" value="Guardar">
     </form>
+    <section class="modal">
+        <div class="modal__container">
+            <h4 class="modal__title">Editar Área</h4>
+            <form id="edit-area-form" data-action="{{ route('areas.update', ':id') }}" method="post">
+                @csrf
+                @method('PATCH')
+                <label>ID AREA:</label>
+                <input type="text" name="idArea" id="idArea" readonly>
+                <label>NOMBRE AREA:</label>
+                <input type="text" name="Nombre" id="Nombre-modal">
+                <a href="#" class="modal__close">Cerrar Modal</a>
+                <button class="modal__actualizar">Actualizar</button>
+            </form>
+        </div>
+    </section>
+    
+    <!--
+    <section class="modal">
+        <div class="modal__container">
+            <h4 class="modal__title">Editar Área</h4>
+            <form action="{{route('areas.update',$areas)}}" method="post">
+                @csrf
+                @method('PATCH')
+                <label >ID AREA:</label>
+                <input type="text" name="idArea" id="idArea">
+                <label >NOMBRE AREA:</label>
+                <input type="text" name="Nombre-modal" id="Nombre-modal">
+                <a href="#" class="modal__close">Cerrar Modal</a>
+                <button class="modal__actualizar">Actualizar</button>
+            </form>
+            
+        </div>
+    </section>-->
 
+
+    <!--<section class="modal">
+        <div class="modal__container">
+            <h4 class="modal__title">Editar Área</h4>
+            <label >ID AREA:</label>
+            <input type="text" name="idArea" id="idArea">
+            <label >NOMBRE AREA:</label>
+            <input type="text" name="Nombre" id="Nombre">
+            <a href="#" class="modal__close">Cerrar Modal</a>
+            <a href="#" class="modal__actualizar">Actualizar</a>
+        </div>
+    </section>-->
 
     <!-- Tabla de Area -->
     @if ($areas)
@@ -41,7 +86,8 @@
                     <td>{{$areas->Nombre}}</td>
                 
                     <td>
-                        <a href="#"">Editar</a> 
+                        <!--<a href="#" class="editar-btn-area">Editar</a>--> 
+                        <a href="#" class="editar-btn-area" data-id="{{ $areas->idArea }}" data-nombre="{{ $areas->Nombre }}">Editar</a> 
                         <a href="#">Eliminar</a>
                     </td>
                 

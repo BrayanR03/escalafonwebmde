@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('styles.css')}}">
+    
 </head>
-<script src={{asset('scripts.js')}}></script>
 <body>
     <div class="container">
         <div class="header">
@@ -30,9 +30,9 @@
                 <a class="cargos-btn" href="{{route('cargos.index')}}">Cargos</a>
                 <a class="areas-btn" href="{{route('areas.index')}}">Areas</a>
 
-            </div> 
+        </div> 
             
-    
+        <script src={{asset('scripts.js')}}></script>
 </body>
 
 </html>

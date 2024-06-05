@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+/*document.addEventListener("DOMContentLoaded", function() {
     const defaultContent = `
         <div class="logo">
             LOGO MUNICIPALIDAD
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             });
     });*/
-
+/*
     document.getElementById("areas-btn").addEventListener("click", function(event) {
         
         fetch('areas')
@@ -107,4 +107,133 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("home-btn").addEventListener("click", function() {
         document.getElementById("content").innerHTML = defaultContent;
     });
-});
+});*/
+
+
+//VALE ESTE JS PARA ABRIR EL MODAL
+/*
+document.addEventListener('DOMContentLoaded', () => {
+            const openModal = document.querySelector('.editar-btn-area');
+            const modal = document.querySelector('.modal');
+            const closeModal = document.querySelector('.modal__close');
+
+            if (openModal && modal && closeModal) {
+                openModal.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('modal--show');
+                    console.log("DISTE CLICK EN EDITAR");
+                });
+
+                closeModal.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.remove('modal--show');
+                });
+            } else {
+                console.error('No se encontraron todos los elementos necesarios en el DOM.');
+            }
+        });
+        */
+       /*
+        document.addEventListener('DOMContentLoaded', () => {
+            const openModalButtons = document.querySelectorAll('.editar-btn-area');
+            const modal = document.querySelector('.modal');
+            const closeModal = document.querySelector('.modal__close');
+        
+            if (openModalButtons.length > 0 && modal && closeModal) {
+                openModalButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        modal.classList.add('modal--show');
+                        console.log("DISTE CLICK EN EDITAR");
+        
+                        // Obtener el ID del área y otros datos para rellenar el modal
+                        const areaId = button.dataset.id;
+                        const areaNombre = button.dataset.nombre;
+                        // Rellenar los campos del modal con los datos del área
+                        document.querySelector('#modal-area-id').value = areaId;
+                        document.querySelector('#modal-area-nombre').value = areaNombre;
+                    });
+                });
+        
+                closeModal.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.remove('modal--show');
+                });
+            } else {
+                console.error('No se encontraron todos los elementos necesarios en el DOM.');
+            }
+        });*/
+
+
+        /*
+        document.addEventListener('DOMContentLoaded', () => {
+            const openModalButtons = document.querySelectorAll('.editar-btn-area');
+            const modal = document.querySelector('.modal');
+            const closeModal = document.querySelector('.modal__close');
+            const idAreaInput = document.querySelector('#idArea');
+            const nombreInput = document.querySelector('#Nombre-modal');
+        
+            if (openModalButtons.length > 0 && modal && closeModal) {
+                openModalButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        modal.classList.add('modal--show');
+                        console.log("DISTE CLICK EN EDITAR");
+        
+                        // Obtener el ID del área y otros datos para rellenar el modal
+                        const areaId = button.dataset.id;
+                        const areaNombre = button.dataset.nombre;
+                        // Rellenar los campos del modal con los datos del área
+                        idAreaInput.value = areaId;
+                        nombreInput.value = areaNombre;
+                    });
+                });
+        
+                closeModal.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.remove('modal--show');
+                });
+            } else {
+                console.error('No se encontraron todos los elementos necesarios en el DOM.');
+            }
+        });
+        
+        */
+        document.addEventListener('DOMContentLoaded', () => {
+            const openModalButtons = document.querySelectorAll('.editar-btn-area');
+            const modal = document.querySelector('.modal');
+            const closeModal = document.querySelector('.modal__close');
+            const idAreaInput = document.querySelector('#idArea');
+            const nombreInput = document.querySelector('#Nombre-modal');
+            const form = document.querySelector('#edit-area-form');
+        
+            if (openModalButtons.length > 0 && modal && closeModal) {
+                openModalButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        modal.classList.add('modal--show');
+                        console.log("DISTE CLICK EN EDITAR");
+        
+                        // Obtener el ID del área y otros datos para rellenar el modal
+                        const areaId = button.dataset.id;
+                        const areaNombre = button.dataset.nombre;
+                        
+                        // Rellenar los campos del modal con los datos del área
+                        idAreaInput.value = areaId;
+                        nombreInput.value = areaNombre;
+                        
+                        // Actualizar la acción del formulario con el ID del área
+                        const action = form.getAttribute('data-action').replace(':id', areaId);
+                        form.setAttribute('action', action);
+                    });
+                });
+        
+                closeModal.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.remove('modal--show');
+                });
+            } else {
+                console.error('No se encontraron todos los elementos necesarios en el DOM.');
+            }
+        });
+        

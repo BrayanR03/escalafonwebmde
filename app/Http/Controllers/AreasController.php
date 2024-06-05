@@ -12,7 +12,7 @@ class AreasController extends Controller
      */
     public function index()
     {
-        $areas=Area::latest()->paginate();
+        $areas=Area::get();
         return view('areas',compact('areas'));
     }
 
@@ -70,9 +70,10 @@ class AreasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CreateAreasRequest $request, Area $areas)
     {
-        //
+        $areas->update($request->validated());
+        return redirect()->route('areas.index');
     }
 
     /**
