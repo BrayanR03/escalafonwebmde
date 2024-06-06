@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('No se encontraron todos los elementos necesarios en el DOM.');
             }
         });
-        */
+*/        
        /*
         document.addEventListener('DOMContentLoaded', () => {
             const openModalButtons = document.querySelectorAll('.editar-btn-area');
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });*/
 
 
-        /*
+        
         document.addEventListener('DOMContentLoaded', () => {
             const openModalButtons = document.querySelectorAll('.editar-btn-area');
             const modal = document.querySelector('.modal');
@@ -186,6 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Rellenar los campos del modal con los datos del área
                         idAreaInput.value = areaId;
                         nombreInput.value = areaNombre;
+
+                        editform.action='/areas/${idArea}'
                     });
                 });
         
@@ -198,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        */
+       /*
         document.addEventListener('DOMContentLoaded', () => {
             const openModalButtons = document.querySelectorAll('.editar-btn-area');
             const modal = document.querySelector('.modal');
@@ -236,4 +238,4 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('No se encontraron todos los elementos necesarios en el DOM.');
             }
         });
-        
+        */

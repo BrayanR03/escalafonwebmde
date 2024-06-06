@@ -62,7 +62,7 @@ class AreasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Area $area)
+    public function edit(Area $areas)
     {
         
     }
@@ -72,8 +72,15 @@ class AreasController extends Controller
      */
     public function update(CreateAreasRequest $request, Area $areas)
     {
-        $areas->update($request->validated());
-        return redirect()->route('areas.index');
+        if ($request->hasFile('image')) {
+            Storage::delete($areas->image);
+            $areas->fill($request->validated());
+            $areas->image=$request->file('image')->store('images');
+            $areas->save();
+        } else {
+            $areas->update(array_filter($request->validated()));
+        }
+        return redirect()->route('alumnos.show',$areas);
     }
 
     /**

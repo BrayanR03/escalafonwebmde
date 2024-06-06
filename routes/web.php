@@ -32,6 +32,7 @@ Route::get('/areas', function () {
 // web.php
 Route::resource('areas', 'App\Http\Controllers\AreasController')->names('areas');
 Route::get('/areas/search', [AreasController::class, 'search'])->name('areas.search');
+Route::patch('areas/{areas}', [AreasController::class, 'update'])->name('areas.update');
 Route::resource('cargos','App\Http\Controllers\CargosController')->names('cargos');
 Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');
 Route::resource('institucion','App\Http\Controllers\InstitucionController')->names('institucion');
