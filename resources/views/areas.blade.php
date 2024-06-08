@@ -57,7 +57,6 @@
                 <button class="modal__eliminar">CONFIRMAR</button>
                 <button class="modal__close__eliminar">CANCELAR</button>
             </form>
-            
         </div>
     </section>
 
