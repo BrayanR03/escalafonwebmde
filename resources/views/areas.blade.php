@@ -3,6 +3,11 @@
 @section('content')
 <div class="areas">
     <h2>Gestión de Áreas</h2>
+    @if(session('success'))
+        <div class="alert">
+            {{ session('success') }}
+        </div>
+    @endif
     
     <!-- Formulario de búsqueda -->
     <form class="search-form" action="{{route('areas.search')}}" method="GET">
@@ -27,15 +32,30 @@
     <section class="modal">
         <div class="modal__container">
             <h4 class="modal__title">Editar Área</h4>
-            <form id="editform" action="" method="post">
+            <form id="editform" action="{{route('areas.update')}}" method="post">
                 @csrf
                 @method('PATCH')
                 <label >ID AREA:</label>
-                <input type="text" name="idArea" id="idArea">
+                <input type="text" name="idArea" id="idArea"  readonly>
                 <label >NOMBRE AREA:</label>
-                <input type="text" name="Nombre-modal" id="Nombre-modal">
-                <a href="#" class="modal__close">Cerrar Modal</a>
+                <input type="text" name="Nombre-modal" id="Nombre-modal" >
+                <button class="modal__close">Cerrar Modal</button>
+                
                 <button class="modal__actualizar">Actualizar</button>
+            </form>
+            
+        </div>
+    </section>
+    <section class="modal-eliminar">
+        <div class="modal__container_eliminar">
+            <h4 class="modal__title">ELIMINAR ÁREA</h4>
+            <form id="editform" action="{{route('areas.destroy')}}" method="post">
+                @csrf
+                @method('DELETE')
+                <p>¿Deseas Eliminar el Área?</p><input type="text" id="NombreAreaEliminar" class="NombreAreaEliminar" class="NombreAreaEliminar" readonly>
+                <input type="text" id="idAreaEliminar" name="idAreaEliminar" class="idAreaEliminar" readonly style="display: none">
+                <button class="modal__eliminar">CONFIRMAR</button>
+                <button class="modal__close__eliminar">CANCELAR</button>
             </form>
             
         </div>
@@ -62,7 +82,7 @@
                     <td>
                         <!--<a href="#" class="editar-btn-area">Editar</a>--> 
                         <a href="{{route('areas.edit',$areas)}}" class="editar-btn-area" data-id="{{ $areas->idArea }}" data-nombre="{{ $areas->Nombre }}">Editar</a> 
-                        <a href="#">Eliminar</a>
+                        <a href="#" class="eliminar-btn-area" data-id="{{ $areas->idArea }} " data-nombre="{{ $areas->Nombre }}">Eliminar</a>
                     </td>
                 
             </tr>

@@ -31,8 +31,9 @@ Route::get('/areas', function () {
 //Route::resource('areas','App\Http\Controllers\AreasController')->names('areas');
 // web.php
 Route::resource('areas', 'App\Http\Controllers\AreasController')->names('areas');
-Route::get('/areas/search', [AreasController::class, 'search'])->name('areas.search');
-Route::patch('areas/{areas}', [AreasController::class, 'update'])->name('areas.update');
+Route::get('/areas/search', [AreasController::class, 'show'])->name('areas.search');
+Route::patch('/areas/actualizar', 'App\Http\Controllers\AreasController@update')->name('areas.update');
+Route::delete('/areas/eliminar', 'App\Http\Controllers\AreasController@destroy')->name('areas.destroy');
 Route::resource('cargos','App\Http\Controllers\CargosController')->names('cargos');
 Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');
 Route::resource('institucion','App\Http\Controllers\InstitucionController')->names('institucion');

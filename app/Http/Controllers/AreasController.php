@@ -52,6 +52,18 @@ class AreasController extends Controller
     return view('areas', compact('areas'));
 }
 
+    public function update(Request $request){
+        $nombre=$request->input('Nombre-modal');
+        $idarea=$request->input('idArea');
+        //dd($nombre);
+        Area::where('idArea',$idarea)->update([
+            'Nombre'=>$nombre
+        ]);
+    
+        return redirect()->route('areas.index')->with('success', 'Área actualizada correctamente');;
+
+    }
+
     /*public function show($idArea)
     {
         $areas=Area::find($idArea);
@@ -70,24 +82,34 @@ class AreasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CreateAreasRequest $request, Area $areas)
+    /*
+    public function update(CreateAreasRequest $request, Area $area)
     {
         if ($request->hasFile('image')) {
             Storage::delete($areas->image);
-            $areas->fill($request->validated());
-            $areas->image=$request->file('image')->store('images');
-            $areas->save();
+            $area->fill($request->validated());
+            $area->image=$request->file('image')->store('images');
+            $area->save();
         } else {
-            $areas->update(array_filter($request->validated()));
+            $area->update(array_filter($request->validated()));
         }
-        return redirect()->route('alumnos.show',$areas);
+        return redirect()->route('areas.index',$area);
     }
-
+*/
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $idarea=$request->input('idAreaEliminar');
+        $area=Area::find($idarea);
+        if ($area) {
+            $area->delete();
+            return redirect()->route('areas.index')->with('success', 'Área eliminada correctamente');;
+        } else {
+            
+            return redirect()->route('areas.index')->with('error', 'No se encontro el área');;
+        }
+        
     }
 }
