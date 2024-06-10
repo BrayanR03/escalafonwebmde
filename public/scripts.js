@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });*/
 
-
+/*================MODAL DE AREAS============================== */
         
         document.addEventListener('DOMContentLoaded', () => {
             const openModalButtons = document.querySelectorAll('.editar-btn-area');
@@ -288,4 +288,363 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
+/*=========================================================================================================== */
+
+
+
+/*================MODAL DE CARGPOS============================== */
         
+document.addEventListener('DOMContentLoaded', () => {
+    const openModalButtons = document.querySelectorAll('.editar-btn-cargos');
+    const modal = document.querySelector('.modal');
+    const closeModal = document.querySelector('.modal__close');
+    const idAreaInput = document.querySelector('#idCargo');
+    const nombreInput = document.querySelector('#Nombre-modal-cargo');
+    //const editform = document.querySelector('#editform');
+
+    if (openModalButtons.length > 0 && modal && closeModal) {
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('modal--show');
+                console.log("DISTE CLICK EN EDITAR");
+
+                // Obtener el ID del área y otros datos para rellenar el modal
+                const areaId = button.dataset.id;
+                const areaNombre = button.dataset.nombre;
+                // Rellenar los campos del modal con los datos del área
+                idAreaInput.value = areaId;
+                nombreInput.value = areaNombre;
+
+               // editform.action='/areas/${idArea}';
+            });
+        });
+
+        closeModal.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('modal--show');
+        });
+    } else {
+        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const openModalButtons = document.querySelectorAll('.eliminar-btn-cargos');
+    const modal = document.querySelector('.modal-eliminar');
+    const closeModaleliminar = document.querySelector('.modal__close__eliminar');
+    const idAreaInput = document.querySelector('#idCargoEliminar');
+    const nombreInput = document.querySelector('#NombreCargoEliminar');
+    //const editform = document.querySelector('#editform');
+
+    if (openModalButtons.length > 0 && modal && closeModaleliminar) {
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('modal--show');
+                console.log("DISTE CLICK EN ELIMINAR");
+
+                const idareaget=button.dataset.id;
+                idAreaInput.value=idareaget;
+                const nombrearea = button.dataset.nombre;
+                nombreInput.value=nombrearea;
+               // editform.action='/areas/${idArea}';
+            });
+        });
+
+        closeModaleliminar.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('modal--show');
+        });
+    } else {
+        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+    }
+});
+
+        // Obtener el elemento de la alerta
+        document.addEventListener('DOMContentLoaded', function() {
+            var alert = document.querySelector('.alert');
+        
+            if (alert) {
+                // Agregar clase de desvanecimiento después de un cierto tiempo
+                setTimeout(function() {
+                    alert.classList.add('fade-out');
+                }, 850); // Cambia este valor (en milisegundos) según la duración que desees
+        
+                // Eliminar la alerta del DOM después de que termine la animación de desvanecimiento
+                alert.addEventListener('transitionend', function() {
+                    alert.remove();
+                });
+            }
+        });
+
+        /**===================================================================================== */
+
+
+        /*================MODAL DE CONDICION LABORAL============================== */
+        
+document.addEventListener('DOMContentLoaded', () => {
+    const openModalButtons = document.querySelectorAll('.editar-btn-condicionlaboral');
+    const modal = document.querySelector('.modal');
+    const closeModal = document.querySelector('.modal__close');
+    const idAreaInput = document.querySelector('#idCondicionLaboral');
+    const nombreInput = document.querySelector('#Nombre-modal-condicionlaboral');
+    //const editform = document.querySelector('#editform');
+
+    if (openModalButtons.length > 0 && modal && closeModal) {
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('modal--show');
+                console.log("DISTE CLICK EN EDITAR");
+
+                // Obtener el ID del área y otros datos para rellenar el modal
+                const areaId = button.dataset.id;
+                const areaNombre = button.dataset.nombre;
+                // Rellenar los campos del modal con los datos del área
+                idAreaInput.value = areaId;
+                nombreInput.value = areaNombre;
+
+               // editform.action='/areas/${idArea}';
+            });
+        });
+
+        closeModal.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('modal--show');
+        });
+    } else {
+        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const openModalButtons = document.querySelectorAll('.eliminar-btn-condicionlaboral');
+    const modal = document.querySelector('.modal-eliminar');
+    const closeModaleliminar = document.querySelector('.modal__close__eliminar');
+    const idAreaInput = document.querySelector('#idCondicionLaboralEliminar');
+    const nombreInput = document.querySelector('#DescripcionCondicionLaboralEliminar');
+    //const editform = document.querySelector('#editform');
+
+    if (openModalButtons.length > 0 && modal && closeModaleliminar) {
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('modal--show');
+                console.log("DISTE CLICK EN ELIMINAR");
+
+                const idareaget=button.dataset.id;
+                idAreaInput.value=idareaget;
+                const nombrearea = button.dataset.nombre;
+                nombreInput.value=nombrearea;
+               // editform.action='/areas/${idArea}';
+            });
+        });
+
+        closeModaleliminar.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('modal--show');
+        });
+    } else {
+        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+    }
+});
+
+        // Obtener el elemento de la alerta
+        document.addEventListener('DOMContentLoaded', function() {
+            var alert = document.querySelector('.alert');
+        
+            if (alert) {
+                // Agregar clase de desvanecimiento después de un cierto tiempo
+                setTimeout(function() {
+                    alert.classList.add('fade-out');
+                }, 850); // Cambia este valor (en milisegundos) según la duración que desees
+        
+                // Eliminar la alerta del DOM después de que termine la animación de desvanecimiento
+                alert.addEventListener('transitionend', function() {
+                    alert.remove();
+                });
+            }
+        });
+
+        /**===================================================================================== */
+
+
+        
+
+        /*================MODAL DE TIPO MOVIMIENTO============================== */
+        
+document.addEventListener('DOMContentLoaded', () => {
+    const openModalButtons = document.querySelectorAll('.editar-btn-tipomovimiento');
+    const modal = document.querySelector('.modal');
+    const closeModal = document.querySelector('.modal__close');
+    const idAreaInput = document.querySelector('#idTipoMov');
+    const nombreInput = document.querySelector('#Nombre-modal-tipomovimiento');
+    //const editform = document.querySelector('#editform');
+
+    if (openModalButtons.length > 0 && modal && closeModal) {
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('modal--show');
+                console.log("DISTE CLICK EN EDITAR");
+
+                // Obtener el ID del área y otros datos para rellenar el modal
+                const areaId = button.dataset.id;
+                const areaNombre = button.dataset.nombre;
+                // Rellenar los campos del modal con los datos del área
+                idAreaInput.value = areaId;
+                nombreInput.value = areaNombre;
+
+               // editform.action='/areas/${idArea}';
+            });
+        });
+
+        closeModal.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('modal--show');
+        });
+    } else {
+        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const openModalButtons = document.querySelectorAll('.eliminar-btn-tipomovimiento');
+    const modal = document.querySelector('.modal-eliminar');
+    const closeModaleliminar = document.querySelector('.modal__close__eliminar');
+    const idAreaInput = document.querySelector('#idTipoMovimientoEliminar');
+    const nombreInput = document.querySelector('#DescripcionTipoMovimientoEliminar');
+    //const editform = document.querySelector('#editform');
+
+    if (openModalButtons.length > 0 && modal && closeModaleliminar) {
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('modal--show');
+                console.log("DISTE CLICK EN ELIMINAR");
+
+                const idareaget=button.dataset.id;
+                idAreaInput.value=idareaget;
+                const nombrearea = button.dataset.nombre;
+                nombreInput.value=nombrearea;
+               // editform.action='/areas/${idArea}';
+            });
+        });
+
+        closeModaleliminar.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('modal--show');
+        });
+    } else {
+        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+    }
+});
+
+        // Obtener el elemento de la alerta
+        document.addEventListener('DOMContentLoaded', function() {
+            var alert = document.querySelector('.alert');
+        
+            if (alert) {
+                // Agregar clase de desvanecimiento después de un cierto tiempo
+                setTimeout(function() {
+                    alert.classList.add('fade-out');
+                }, 850); // Cambia este valor (en milisegundos) según la duración que desees
+        
+                // Eliminar la alerta del DOM después de que termine la animación de desvanecimiento
+                alert.addEventListener('transitionend', function() {
+                    alert.remove();
+                });
+            }
+        });
+
+        /**===================================================================================== */
+
+
+                /*================MODAL DE TIPO DOCUMENTO============================== */
+        
+document.addEventListener('DOMContentLoaded', () => {
+    const openModalButtons = document.querySelectorAll('.editar-btn-tipodocumento');
+    const modal = document.querySelector('.modal');
+    const closeModal = document.querySelector('.modal__close');
+    const idAreaInput = document.querySelector('#idTipoDoc');
+    const nombreInput = document.querySelector('#Nombre-modal-tipodocumento');
+    //const editform = document.querySelector('#editform');
+
+    if (openModalButtons.length > 0 && modal && closeModal) {
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('modal--show');
+                console.log("DISTE CLICK EN EDITAR");
+
+                // Obtener el ID del área y otros datos para rellenar el modal
+                const areaId = button.dataset.id;
+                const areaNombre = button.dataset.nombre;
+                // Rellenar los campos del modal con los datos del área
+                idAreaInput.value = areaId;
+                nombreInput.value = areaNombre;
+
+               // editform.action='/areas/${idArea}';
+            });
+        });
+
+        closeModal.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('modal--show');
+        });
+    } else {
+        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const openModalButtons = document.querySelectorAll('.eliminar-btn-tipodocumento');
+    const modal = document.querySelector('.modal-eliminar');
+    const closeModaleliminar = document.querySelector('.modal__close__eliminar');
+    const idAreaInput = document.querySelector('#idTipoDocumentoEliminar');
+    const nombreInput = document.querySelector('#DescripcionTipoDocumentoEliminar');
+    //const editform = document.querySelector('#editform');
+
+    if (openModalButtons.length > 0 && modal && closeModaleliminar) {
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('modal--show');
+                console.log("DISTE CLICK EN ELIMINAR");
+
+                const idareaget=button.dataset.id;
+                idAreaInput.value=idareaget;
+                const nombrearea = button.dataset.nombre;
+                nombreInput.value=nombrearea;
+               // editform.action='/areas/${idArea}';
+            });
+        });
+
+        closeModaleliminar.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('modal--show');
+        });
+    } else {
+        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+    }
+});
+
+        // Obtener el elemento de la alerta
+        document.addEventListener('DOMContentLoaded', function() {
+            var alert = document.querySelector('.alert');
+        
+            if (alert) {
+                // Agregar clase de desvanecimiento después de un cierto tiempo
+                setTimeout(function() {
+                    alert.classList.add('fade-out');
+                }, 850); // Cambia este valor (en milisegundos) según la duración que desees
+        
+                // Eliminar la alerta del DOM después de que termine la animación de desvanecimiento
+                alert.addEventListener('transitionend', function() {
+                    alert.remove();
+                });
+            }
+        });
+
+        /**===================================================================================== */

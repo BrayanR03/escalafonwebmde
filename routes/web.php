@@ -34,7 +34,28 @@ Route::resource('areas', 'App\Http\Controllers\AreasController')->names('areas')
 Route::get('/areas/search', [AreasController::class, 'show'])->name('areas.search');
 Route::patch('/areas/actualizar', 'App\Http\Controllers\AreasController@update')->name('areas.update');
 Route::delete('/areas/eliminar', 'App\Http\Controllers\AreasController@destroy')->name('areas.destroy');
+
 Route::resource('cargos','App\Http\Controllers\CargosController')->names('cargos');
+Route::get('/cargos/search',[CargosController::class, 'show'])->name('cargos.search');
+Route::patch('cargos/actualizar','App\Http\Controllers\CargosController@update')->name('cargos.update');
+Route::delete('/cargos/eliminar','App\Http\Controllers\CargosController@destroy')->name('cargos.destroy');
+
+Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');
+Route::get('/condicionlaboral/search',[CondicionLaboralController::class, 'show'])->name('condicionlaboral.search');
+Route::patch('/condicionlaboral/actualizar','App\Http\Controllers\CondicionLaboralController@update')->name('condicionlaboral.update');
+Route::delete('/condicionlaboral/eliminar','App\Http\Controllers\CondicionLaboralController@destroy')->name('condicionlaboral.destroy');
+
+Route::resource('tipomovimiento','App\Http\Controllers\TipoMovimientoController')->names('tipomovimiento');
+Route::get('/tipomovimiento/search',[TipoMovimientoController::class, 'show'])->name('tipomovimiento.search');
+Route::patch('/tipomovimiento/actualizar','App\Http\Controllers\TipoMovimientoController@update')->name('tipomovimiento.update');
+Route::delete('/tipomovimiento/eliminar','App\Http\Controllers\TipoMovimientoController@destroy')->name('tipomovimiento.destroy');
+
+Route::resource('tipodocumento','App\Http\Controllers\TipoDocumentoController')->names('tipodocumento');
+Route::get('/tipodocumento/search',[TipoDocumentoController::class, 'show'])->name('tipodocumento.search');
+Route::patch('/tipodocumento/actualizar','App\Http\Controllers\TipoDocumentoController@update')->name('tipodocumento.update');
+Route::delete('/tipodocumento/eliminar','App\Http\Controllers\TipoDocumentoController@destroy')->name('tipodocumento.destroy');
+
+
 Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');
 Route::resource('institucion','App\Http\Controllers\InstitucionController')->names('institucion');
 Route::resource('nivelestudios','App\Http\Controllers\NivelEstudiosController')->names('nivelestudios');

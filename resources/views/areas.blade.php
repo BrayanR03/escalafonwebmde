@@ -39,7 +39,7 @@
                 <input type="text" name="idArea" id="idArea"  readonly>
                 <label >NOMBRE AREA:</label>
                 <input type="text" name="Nombre-modal" id="Nombre-modal" >
-                <button class="modal__close">Cerrar Modal</button>
+                <button class="modal__close">Cerrar</button>
                 
                 <button class="modal__actualizar">Actualizar</button>
             </form>
@@ -52,7 +52,7 @@
             <form id="editform" action="{{route('areas.destroy')}}" method="post">
                 @csrf
                 @method('DELETE')
-                <p>¿Deseas Eliminar el Área?</p><input type="text" id="NombreAreaEliminar" class="NombreAreaEliminar" class="NombreAreaEliminar" readonly>
+                <p>¿Deseas Eliminar el Área?</p><input type="text" id="NombreAreaEliminar" class="NombreAreaEliminar" readonly>
                 <input type="text" id="idAreaEliminar" name="idAreaEliminar" class="idAreaEliminar" readonly style="display: none">
                 <button class="modal__eliminar">CONFIRMAR</button>
                 <button class="modal__close__eliminar">CANCELAR</button>
