@@ -11,4 +11,8 @@ class Trabajador extends Model
     protected $table='trabajadores';
     protected $primaryKey='idTrabajador';
     protected $guarded=[];
+    public function condicionLaboral()
+    {
+        return $this->belongsTo(CondicionLaboral::class, 'idCondicionLaboral');
+    }
 }

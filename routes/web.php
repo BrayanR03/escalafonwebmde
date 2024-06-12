@@ -68,6 +68,9 @@ Route::delete('/institucion/eliminar','App\Http\Controllers\InstitucionControlle
 
 
 Route::resource('trabajadores','App\Http\Controllers\TrabajadoresController')->names('trabajadores');
+Route::get('/trabajadores/search', [TrabajadoresController::class, 'show'])->name('trabajadores.search');
+
+
 /*
 Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');
 Route::resource('institucion','App\Http\Controllers\InstitucionController')->names('institucion');

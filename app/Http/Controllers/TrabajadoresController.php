@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTrabajadoresRequest;
 use Illuminate\Http\Request;
 use App\Models\Trabajador;
 use App\Models\CondicionLaboral;
@@ -13,7 +14,7 @@ class TrabajadoresController extends Controller
     public function index()
     {
         $condicionlaboral=CondicionLaboral::get();
-        $trabajadores=Trabajador::get();
+        $trabajadores=Trabajador::with('condicionlaboral')->get();
         return view('trabajadores',compact('condicionlaboral','trabajadores'));
     }
 
@@ -28,9 +29,11 @@ class TrabajadoresController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateTrabajadoresRequest $request)
     {
-        //
+        $trabajadores=new Trabajador($request->validated());
+        $trabajadores->save();
+        return redirect()->route('trabajadores.index');
     }
 
     /**
@@ -38,8 +41,16 @@ class TrabajadoresController extends Controller
      */
     public function show(Request $request)
     {
+        $condicionlaboral=CondicionLaboral::get();
         $query=$request->input('search');
-        
+        $trabajadores = Trabajador::with('condicionLaboral')
+        ->where('Dni', 'LIKE', '%' . $query . '%')
+        ->orWhere('ApellidoPaterno', 'LIKE', '%' . $query . '%')
+        ->get();
+        if($trabajadores->isEmpty()){
+            $trabajadores=[];
+        }
+        return view('trabajadores',compact('condicionlaboral','trabajadores'));
     }
 
     /**

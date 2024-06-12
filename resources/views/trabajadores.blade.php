@@ -10,47 +10,47 @@
     @endif
     
     <!-- Formulario de búsqueda -->
-    <form class="search-form" action="" method="GET">
+    <form class="search-form" action="{{route('trabajadores.search')}}" method="GET">
         <label for="search">Buscar Trabajador:</label>
         <input type="text" id="search" autocomplete="off" name="search" placeholder="Ingrese nombre o DNI del trabajador">
         <input type="submit" value="Buscar">
     </form>
 
     <!-- Formulario de registro y actualización -->
-    <form action="" method="POST">
+    <form action="{{route('trabajadores.store')}}" method="POST">
         @csrf
         <div class="form-grid">
             <div class="form-group">
                 <label for="apellido_paterno">Apellido Paterno:</label>
-                <input type="text" id="apellido_paterno" autocomplete="off" name="apellido_paterno" placeholder="Ingrese el apellido paterno">
+                <input type="text" required id="ApellidoPaterno" autocomplete="off" name="ApellidoPaterno" placeholder="Ingrese el apellido paterno">
             </div>
             <div class="form-group">
                 <label for="apellido_materno">Apellido Materno:</label>
-                <input type="text" id="apellido_materno" autocomplete="off" name="apellido_materno" placeholder="Ingrese el apellido materno">
+                <input type="text" required id="ApellidoMaterno" autocomplete="off" name="ApellidoMaterno" placeholder="Ingrese el apellido materno">
             </div>
             <div class="form-group">
                 <label for="nombres">Nombres:</label>
-                <input type="text" id="nombres" autocomplete="off" name="nombres" placeholder="Ingrese los nombres">
+                <input type="text" required id="Nombres" autocomplete="off" name="Nombres" placeholder="Ingrese los nombres">
             </div>
             <div class="form-group">
                 <label for="dni">DNI:</label>
-                <input type="text" id="dni" autocomplete="off" name="dni" placeholder="Ingrese el DNI">
+                <input type="text" required id="Dni" autocomplete="off" name="Dni" placeholder="Ingrese el DNI">
             </div>
             <div class="form-group">
                 <label for="sexo">Sexo:</label>
-                <select id="sexo" name="sexo">
-                    <option value="Masculino">Masculino</option>
-                    <option value="Femenino">Femenino</option>
+                <select  id="Sexo" name="Sexo">
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd/mm/aaaa">
+                <input type="date" required id="FechaNacimiento" name="FechaNacimiento" placeholder="dd/mm/aaaa">
             </div>
             <div class="form-group">
                 @if ($condicionlaboral)
                 <label for="condicion_laboral">Condición Laboral:</label>
-                <select id="condicion_laboral" name="condicion_laboral">
+                <select id="idCondicionLaboral" name="idCondicionLaboral">
                     <option value="">Seleccionar</option>
                     @foreach ($condicionlaboral as $condicionlaboral)
                         <option value="{{$condicionlaboral->idCondicionLaboral}}">{{$condicionlaboral->Descripcion}}</option>
@@ -120,7 +120,7 @@
                 <td>{{$trabajadores->Dni}}</td>
                 <td>{{$trabajadores->Sexo}}</td>
                 <td>{{$trabajadores->FechaNacimiento}}</td>
-                <td>{{$trabajadores->idCondicionLaboral}}</td>
+                <td>{{$trabajadores->condicionlaboral->Descripcion}}</td>
                 <td>
                     <a href="#">Editar</a> 
                     <a href="#">Eliminar</a>
