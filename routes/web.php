@@ -66,12 +66,15 @@ Route::get('/institucion/search',[InstitucionController::class, 'show'])->name('
 Route::patch('/institucion/actualizar','App\Http\Controllers\InstitucionController@update')->name('institucion.update');
 Route::delete('/institucion/eliminar','App\Http\Controllers\InstitucionController@destroy')->name('institucion.destroy');
 
+
+Route::resource('trabajadores','App\Http\Controllers\TrabajadoresController')->names('trabajadores');
+/*
 Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');
 Route::resource('institucion','App\Http\Controllers\InstitucionController')->names('institucion');
 Route::resource('nivelestudios','App\Http\Controllers\NivelEstudiosController')->names('nivelestudios');
 Route::resource('tipodocumento','App\Http\Controllers\TipoDocumentoController')->names('tipodocumento');
 Route::resource('tipomovimiento','App\Http\Controllers\TipoMovimientoController')->names('tipomovimiento');
-
+*/
 
 /*
 Route::get('/condicionlaboral', function () {

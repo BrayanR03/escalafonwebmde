@@ -12,7 +12,7 @@
     <!-- Formulario de búsqueda -->
     <form class="search-form" action="{{route('cargos.search')}}" method="GET">
         <label for="search">Buscar Cargo:</label>
-        <input type="text" id="search" name="search" placeholder="Ingrese nombre del cargo">
+        <input type="text" id="search" autocomplete="off" name="search" placeholder="Ingrese nombre del cargo">
         <input type="submit" value="Buscar">
     </form>
 
@@ -20,7 +20,7 @@
     <form action="{{route('cargos.store')}}" method="POST">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <label for="nombre">Nombre del Cargo:</label>
-        <input type="text" id="Nombre" name="Nombre" placeholder="Ingrese el nombre del Cargo">
+        <input type="text" id="Nombre" autocomplete="off" name="Nombre" placeholder="Ingrese el nombre del Cargo">
         @include('partials.validation-errors') <br>
         <input type="submit" value="Guardar">
     </form>

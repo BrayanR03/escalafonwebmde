@@ -11,7 +11,7 @@
     <!-- Formulario de búsqueda -->
     <form class="search-form" action="{{route('institucion.search')}}" method="GET">
         <label for="search">Buscar Institución:</label>
-        <input type="text" id="search" name="search" placeholder="Ingrese nombre de institución">
+        <input type="text" id="search" autocomplete="off" name="search" placeholder="Ingrese nombre de institución">
         <input type="submit" value="Buscar">
     </form>
 
@@ -19,7 +19,7 @@
     <form action="{{route('institucion.store')}}" method="POST">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <label for="nombre">Nombre de la Institución:</label>
-        <input type="text" id="Nombre" name="Nombre" placeholder="Ingrese el nombre de la institución">
+        <input type="text" id="Nombre" autocomplete="off" name="Nombre" placeholder="Ingrese el nombre de la institución">
         @include('partials.validation-errors')<br>
         <input type="submit" value="Guardar">
     </form>

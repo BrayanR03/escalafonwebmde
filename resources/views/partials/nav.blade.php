@@ -20,7 +20,7 @@
             <a class="institucion-btn" href="{{route('institucion.index')}}">Institución</a>
             <a class="estudios-btn" href="#">Estudios</a>
             <a class="experiencia-btn" href="#">Experiencia Laboral</a>
-            <a class="trabajadores-btn" href="#">Trabajadores</a>
+            <a class="trabajadores-btn" href="{{route('trabajadores.index')}}">Trabajadores</a>
         </div>
         <div class="main">
             <div class="top-nav">

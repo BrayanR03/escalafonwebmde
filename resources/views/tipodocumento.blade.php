@@ -11,7 +11,7 @@
     <!-- Formulario de búsqueda -->
     <form class="search-form" action="{{route('tipodocumento.search')}}" method="GET">
         <label for="search">Buscar Tipo Documento:</label>
-            <input type="text" id="search" name="search" placeholder="Ingrese la descripcion del Tipo Documento">
+            <input type="text" id="search" autocomplete="off" name="search" placeholder="Ingrese la descripcion del Tipo Documento">
         <input type="submit" value="Buscar">
     </form>
 
@@ -19,7 +19,7 @@
     <form action="{{route('tipodocumento.store')}}" method="POST">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <label for="nombre">Descripcion del Tipo Documento:</label>
-        <input type="text" id="Descripcion" name="Descripcion" placeholder="Ingrese la descripcion del Tipo Documento">
+        <input type="text" id="Descripcion" autocomplete="off" name="Descripcion" placeholder="Ingrese la descripcion del Tipo Documento">
         @include('partials.validation-errors')<br>
         <input type="submit" value="Guardar">
     </form>

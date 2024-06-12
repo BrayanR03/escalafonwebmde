@@ -847,3 +847,84 @@ body {
     opacity: 0;
   }
   
+  #content {
+    padding: 20px;
+}
+
+.trabajadores {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 85%;
+    width: 95%;
+    margin-left: 30px;
+}
+
+.trabajadores h2 {
+    margin-top: 0;
+}
+
+.trabajadores form {
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.trabajadores table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.trabajadores th, .trabajadores td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.trabajadores th {
+    background-color: #f2f2f2;
+}
+
+.trabajadores input[type="text"],
+.trabajadores input[type="date"],
+.trabajadores select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.trabajadores input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.trabajadores input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}

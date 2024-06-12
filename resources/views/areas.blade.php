@@ -12,7 +12,7 @@
     <!-- Formulario de búsqueda -->
     <form class="search-form" action="{{route('areas.search')}}" method="GET">
         <label for="search">Buscar Area:</label>
-        <input type="text" id="search" name="search" placeholder="Ingrese nombre del área">
+        <input type="text" id="search" name="search" autocomplete="off" placeholder="Ingrese nombre del área">
         <input type="submit" value="Buscar">
     </form>
 
@@ -23,7 +23,7 @@
         
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <label >Nombre del Área:</label>
-        <input type="text" id="Nombre" name="Nombre"  placeholder="Ingrese el nombre del Área">
+        <input type="text" id="Nombre" name="Nombre" autocomplete="off"  placeholder="Ingrese el nombre del Área">
         @include('partials.validation-errors') <br>
         <input type="submit" value="Guardar">
     </form>
