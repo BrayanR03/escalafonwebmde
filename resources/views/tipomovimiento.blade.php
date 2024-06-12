@@ -3,19 +3,23 @@
 @section('content')
 <div class="tipomovimiento">
     <h2>Gestión de Tipo Movimiento</h2>
-    
+    @if(session('success'))
+        <div class="alert">
+            {{ session('success') }}
+        </div>
+    @endif
     <!-- Formulario de búsqueda -->
     <form class="search-form" action="{{route('tipomovimiento.search')}}" method="GET">
         <label for="search">Buscar Tipo Movimiento:</label>
-            <input type="text" id="search" name="search" placeholder="Ingrese nombre del Tipo Movimiento">
+            <input type="text" id="search" name="search" placeholder="Ingrese la descripcion Tipo Movimiento">
         <input type="submit" value="Buscar">
     </form>
 
     <!-- Formulario de registro y actualización -->
     <form action="{{route('tipomovimiento.store')}}" method="POST">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <label for="nombre">Nombre del Tipo Movimiento:</label>
-        <input type="text" id="Descripcion" name="Descripcion" placeholder="Ingrese el nombre del Tipo Movimiento">
+        <label for="nombre">Descripcion del Tipo Movimiento:</label>
+        <input type="text" id="Descripcion" name="Descripcion" placeholder="Ingrese la descripcion del Tipo Movimiento">
         @include('partials.validation-errors')<br>
         <input type="submit" value="Guardar">
     </form>

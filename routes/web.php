@@ -55,6 +55,16 @@ Route::get('/tipodocumento/search',[TipoDocumentoController::class, 'show'])->na
 Route::patch('/tipodocumento/actualizar','App\Http\Controllers\TipoDocumentoController@update')->name('tipodocumento.update');
 Route::delete('/tipodocumento/eliminar','App\Http\Controllers\TipoDocumentoController@destroy')->name('tipodocumento.destroy');
 
+Route::resource('nivelestudio','App\Http\Controllers\NivelEstudioController')->names('nivelestudio');
+Route::get('/nivelestudio/search',[NivelEstudioController::class, 'show'])->name('nivelestudio.search');
+Route::patch('/nivelestudio/actualizar','App\Http\Controllers\NivelEstudioController@update')->name('nivelestudio.update');
+Route::delete('/nivelestudio/eliminar','App\Http\Controllers\NivelEstudioController@destroy')->name('nivelestudio.destroy');
+
+
+Route::resource('institucion','App\Http\Controllers\InstitucionController')->names('institucion');
+Route::get('/institucion/search',[InstitucionController::class, 'show'])->name('institucion.search');
+Route::patch('/institucion/actualizar','App\Http\Controllers\InstitucionController@update')->name('institucion.update');
+Route::delete('/institucion/eliminar','App\Http\Controllers\InstitucionController@destroy')->name('institucion.destroy');
 
 Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');
 Route::resource('institucion','App\Http\Controllers\InstitucionController')->names('institucion');

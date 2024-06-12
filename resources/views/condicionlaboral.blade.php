@@ -3,19 +3,23 @@
 @section('content')
 <div class="condicionlaboral">
     <h2>Gestión de Condición Laboral</h2>
-    
+    @if(session('success'))
+        <div class="alert">
+            {{ session('success') }}
+        </div>
+    @endif
     <!-- Formulario de búsqueda -->
     <form class="search-form" action="{{route('condicionlaboral.search')}}" method="GET">
         <label for="search">Buscar Condicion Laboral:</label>
-        <input type="text" id="search" name="search" placeholder="Ingrese nombre de la condición laboral">
+        <input type="text" id="search" name="search" placeholder="Ingrese descripcion de la condición laboral">
         <input type="submit" value="Buscar">
     </form>
 
     <!-- Formulario de registro y actualización -->
     <form action="{{route('condicionlaboral.store')}}" method="POST">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <label for="nombre">Nombre de la Condicion Laboral:</label>
-        <input type="text" id="Descripcion" name="Descripcion" placeholder="Ingrese el nombre de la condicion laboral">
+        <label for="nombre">Descripcion de la Condicion Laboral:</label>
+        <input type="text" id="Descripcion" name="Descripcion" placeholder="Ingrese la descripcion de la condicion laboral">
         @include('partials.validation-errors')<br>
         <input type="submit" value="Guardar">
     </form>

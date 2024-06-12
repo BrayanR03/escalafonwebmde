@@ -3,19 +3,24 @@
 @section('content')
 <div class="tipodocumento">
     <h2>Gestión de Tipo Documento</h2>
-    
+    @if(session('success'))
+        <div class="alert">
+            {{ session('success') }}
+        </div>
+    @endif
     <!-- Formulario de búsqueda -->
     <form class="search-form" action="{{route('tipodocumento.search')}}" method="GET">
         <label for="search">Buscar Tipo Documento:</label>
-            <input type="text" id="search" name="search" placeholder="Ingrese nombre del Tipo Documento">
+            <input type="text" id="search" name="search" placeholder="Ingrese la descripcion del Tipo Documento">
         <input type="submit" value="Buscar">
     </form>
 
     <!-- Formulario de registro y actualización -->
     <form action="{{route('tipodocumento.store')}}" method="POST">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <label for="nombre">Nombre del Tipo Documento:</label>
-        <input type="text" id="Descripcion" name="Descripcion" placeholder="Ingrese el nombre del Tipo Documento">
+        <label for="nombre">Descripcion del Tipo Documento:</label>
+        <input type="text" id="Descripcion" name="Descripcion" placeholder="Ingrese la descripcion del Tipo Documento">
+        @include('partials.validation-errors')<br>
         <input type="submit" value="Guardar">
     </form>
 
@@ -39,7 +44,7 @@
     </section>
     <section class="modal-eliminar">
         <div class="modal__container_eliminar">
-            <h4 class="modal__title">ELIMINAR TIPO DOCUMNEOT</h4>
+            <h4 class="modal__title">ELIMINAR TIPO DOCUMENTO</h4>
             <form id="editform" action="{{route('tipodocumento.destroy')}}" method="post">
                 @csrf
                 @method('DELETE')

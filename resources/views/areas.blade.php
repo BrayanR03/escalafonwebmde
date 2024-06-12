@@ -23,7 +23,7 @@
         
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <label >Nombre del Área:</label>
-        <input type="text" id="Nombre" name="Nombre" required placeholder="Ingrese el nombre del Área">
+        <input type="text" id="Nombre" name="Nombre"  placeholder="Ingrese el nombre del Área">
         @include('partials.validation-errors') <br>
         <input type="submit" value="Guardar">
     </form>

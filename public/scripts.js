@@ -648,3 +648,183 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         /**===================================================================================== */
+
+
+
+                /*================MODAL DE NIVEL DE ESTUDIO============================== */
+        
+                document.addEventListener('DOMContentLoaded', () => {
+                    const openModalButtons = document.querySelectorAll('.editar-btn-nivelestudio');
+                    const modal = document.querySelector('.modal');
+                    const closeModal = document.querySelector('.modal__close');
+                    const idAreaInput = document.querySelector('#idNivelEstudio');
+                    const nombreInput = document.querySelector('#Nombre-modal-nivelestudio');
+                    //const editform = document.querySelector('#editform');
+                
+                    if (openModalButtons.length > 0 && modal && closeModal) {
+                        openModalButtons.forEach(button => {
+                            button.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                modal.classList.add('modal--show');
+                                console.log("DISTE CLICK EN EDITAR");
+                
+                                // Obtener el ID del área y otros datos para rellenar el modal
+                                const areaId = button.dataset.id;
+                                const areaNombre = button.dataset.nombre;
+                                // Rellenar los campos del modal con los datos del área
+                                idAreaInput.value = areaId;
+                                nombreInput.value = areaNombre;
+                
+                               // editform.action='/areas/${idArea}';
+                            });
+                        });
+                
+                        closeModal.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            modal.classList.remove('modal--show');
+                        });
+                    } else {
+                        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+                    }
+                });
+                
+                document.addEventListener('DOMContentLoaded', () => {
+                    const openModalButtons = document.querySelectorAll('.eliminar-btn-nivelestudio');
+                    const modal = document.querySelector('.modal-eliminar');
+                    const closeModaleliminar = document.querySelector('.modal__close__eliminar');
+                    const idAreaInput = document.querySelector('#idNivelEstudioEliminar');
+                    const nombreInput = document.querySelector('#DescripcionNivelEstudioEliminar');
+                    //const editform = document.querySelector('#editform');
+                
+                    if (openModalButtons.length > 0 && modal && closeModaleliminar) {
+                        openModalButtons.forEach(button => {
+                            button.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                modal.classList.add('modal--show');
+                                console.log("DISTE CLICK EN ELIMINAR");
+                
+                                const idareaget=button.dataset.id;
+                                idAreaInput.value=idareaget;
+                                const nombrearea = button.dataset.nombre;
+                                nombreInput.value=nombrearea;
+                               // editform.action='/areas/${idArea}';
+                            });
+                        });
+                
+                        closeModaleliminar.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            modal.classList.remove('modal--show');
+                        });
+                    } else {
+                        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+                    }
+                });
+                
+                        // Obtener el elemento de la alerta
+                        document.addEventListener('DOMContentLoaded', function() {
+                            var alert = document.querySelector('.alert');
+                        
+                            if (alert) {
+                                // Agregar clase de desvanecimiento después de un cierto tiempo
+                                setTimeout(function() {
+                                    alert.classList.add('fade-out');
+                                }, 850); // Cambia este valor (en milisegundos) según la duración que desees
+                        
+                                // Eliminar la alerta del DOM después de que termine la animación de desvanecimiento
+                                alert.addEventListener('transitionend', function() {
+                                    alert.remove();
+                                });
+                            }
+                        });
+                
+                        /**===================================================================================== */
+                
+
+                                        /*================MODAL DE INSTITUCION============================== */
+        
+                document.addEventListener('DOMContentLoaded', () => {
+                    const openModalButtons = document.querySelectorAll('.editar-btn-institucion');
+                    const modal = document.querySelector('.modal');
+                    const closeModal = document.querySelector('.modal__close');
+                    const idAreaInput = document.querySelector('#idInstitucion');
+                    const nombreInput = document.querySelector('#Nombre-modal-institucion');
+                    //const editform = document.querySelector('#editform');
+                
+                    if (openModalButtons.length > 0 && modal && closeModal) {
+                        openModalButtons.forEach(button => {
+                            button.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                modal.classList.add('modal--show');
+                                console.log("DISTE CLICK EN EDITAR");
+                
+                                // Obtener el ID del área y otros datos para rellenar el modal
+                                const areaId = button.dataset.id;
+                                const areaNombre = button.dataset.nombre;
+                                // Rellenar los campos del modal con los datos del área
+                                idAreaInput.value = areaId;
+                                nombreInput.value = areaNombre;
+                
+                               // editform.action='/areas/${idArea}';
+                            });
+                        });
+                
+                        closeModal.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            modal.classList.remove('modal--show');
+                        });
+                    } else {
+                        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+                    }
+                });
+                
+                document.addEventListener('DOMContentLoaded', () => {
+                    const openModalButtons = document.querySelectorAll('.eliminar-btn-institucion');
+                    const modal = document.querySelector('.modal-eliminar');
+                    const closeModaleliminar = document.querySelector('.modal__close__eliminar');
+                    const idAreaInput = document.querySelector('#idInstitucionEliminar');
+                    const nombreInput = document.querySelector('#NombreInstitucionEliminar');
+                    //const editform = document.querySelector('#editform');
+                
+                    if (openModalButtons.length > 0 && modal && closeModaleliminar) {
+                        openModalButtons.forEach(button => {
+                            button.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                modal.classList.add('modal--show');
+                                console.log("DISTE CLICK EN ELIMINAR");
+                
+                                const idareaget=button.dataset.id;
+                                idAreaInput.value=idareaget;
+                                const nombrearea = button.dataset.nombre;
+                                nombreInput.value=nombrearea;
+                               // editform.action='/areas/${idArea}';
+                            });
+                        });
+                
+                        closeModaleliminar.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            modal.classList.remove('modal--show');
+                        });
+                    } else {
+                        console.error('No se encontraron todos los elementos necesarios en el DOM.');
+                    }
+                });
+                
+                        // Obtener el elemento de la alerta
+                        document.addEventListener('DOMContentLoaded', function() {
+                            var alert = document.querySelector('.alert');
+                        
+                            if (alert) {
+                                // Agregar clase de desvanecimiento después de un cierto tiempo
+                                setTimeout(function() {
+                                    alert.classList.add('fade-out');
+                                }, 850); // Cambia este valor (en milisegundos) según la duración que desees
+                        
+                                // Eliminar la alerta del DOM después de que termine la animación de desvanecimiento
+                                alert.addEventListener('transitionend', function() {
+                                    alert.remove();
+                                });
+                            }
+                        });
+                
+                        /**===================================================================================== */
+
