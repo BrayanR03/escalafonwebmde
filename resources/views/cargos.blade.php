@@ -74,7 +74,7 @@
                 <td>{{$cargos->idCargo}}</td>
                 <td>{{$cargos->Nombre}}</td>
                 <td>
-                    <a href="{{route('cargos.edit',$cargos)}}" class="editar-btn-cargos" data-id="{{$cargos->idCargo}}" data-nombre="{{$cargos->Nombre}}">Editar</a> |
+                    <a href="{{route('cargos.edit',$cargos)}}" class="editar-btn-cargos" data-id="{{$cargos->idCargo}}" data-nombre="{{$cargos->Nombre}}">Editar</a>
                     <a href="#" class="eliminar-btn-cargos" data-id="{{$cargos->idCargo}}" data-nombre="{{$cargos->Nombre}}">Eliminar</a>
                 </td>
             </tr>    
