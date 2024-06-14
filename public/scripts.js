@@ -859,7 +859,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dni = button.dataset.dni;
                 const sexo=button.dataset.sexo;
                 const fechanacimiento=button.dataset.fechanacimiento;
-                const condicionlaboralInput=button.dataset.condicionlaboral;
+                // const condicionlaboral=button.dataset.condicionlaboral;
                 // Rellenar los campos del modal con los datos del área
                 idAreaInput.value = areaId;
                 nombreInput.value = nombres;
@@ -868,7 +868,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 dniInput.value = dni;
                 sexoInput.value=sexo;
                 fechaNacimientoInput.value=fechanacimiento;
-                //condicionlaboralInput.value=condicionlaboral;
+                // condicionlaboralInput.value=condicionlaboral;
+                
+                const condicionesLaborales = JSON.parse(button.dataset.condicioneslaborales);
+                const condicionLaboralActual = button.dataset.condicionlaboral;
+
+                // Limpiar opciones anteriores del select
+                condicionLaboralInput.innerHTML = '';
+
+                // Iterar sobre las condiciones laborales y agregarlas como opciones al select
+                condicionesLaborales.forEach(condicion => {
+                    const option = document.createElement('option');
+                    option.value = condicion.idCondicionLaboral;
+                    option.textContent = condicion.Descripcion;
+                    if (condicion.idCondicionLaboral === condicionLaboralActual) {
+                        option.selected = true; // Seleccionar la opción actual
+                    }
+                    condicionLaboralInput.appendChild(option);
+                });
+                console.log("==================================");
+                console.log(condicionlaboral);
                 // editform.action='/areas/${idArea}';
             });
         });

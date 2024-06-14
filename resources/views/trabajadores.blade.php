@@ -88,11 +88,8 @@
                 <input type="date" name="FechaNacimiento-modal-trabajador" id="FechaNacimiento-modal-trabajador">
                 
                 <label >Condición Laboral:</label>
-                <select >
-                    <option value="">Seleccionar</option>
-                    <option value="">HOLA</option>
+                <select id="idCondicionLaboral-modal-trabajador" name="idCondicionLaboral-modal-trabajador">
                 </select>
-                
                 <button class="modal__close">Cerrar</button>
                 <button class="modal__actualizar">Actualizar</button>
             </form>
@@ -142,7 +139,7 @@
                 <td>{{$trabajadores->FechaNacimiento}}</td>
                 <td>{{$trabajadores->condicionlaboral->Descripcion}}</td>
                 <td>
-                    <a href="{{route('trabajadores.edit',$trabajadores)}}" class="editar-btn-trabajador" data-id="{{$trabajadores->idTrabajador}}" data-paterno="{{$trabajadores->ApellidoPaterno}}" 
+                    <a href="{{route('trabajadores.edit',$trabajadores->idTrabajador)}}" class="editar-btn-trabajador" data-id="{{$trabajadores->idTrabajador}}" data-paterno="{{$trabajadores->ApellidoPaterno}}" 
                         data-materno="{{$trabajadores->ApellidoMaterno}}" data-nombres="{{$trabajadores->Nombres}}" data-dni="{{$trabajadores->Dni}}"
                         data-sexo="{{$trabajadores->Sexo}}" data-fechanacimiento="{{$trabajadores->FechaNacimiento}}"
                         data-condicionlaboral="{{$trabajadores->condicionlaboral->Descripcion}}">Editar</a> 

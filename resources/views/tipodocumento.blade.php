@@ -74,7 +74,7 @@
                 <td>{{$tipodocumento->idTipoDoc}}</td>
                 <td>{{$tipodocumento->Descripcion}}</td>
                 <td>
-                    <a class="editar-btn-tipodocumento" href="{{route('tipodocumento.edit',$tipodocumento)}}" data-id="{{$tipodocumento->idTipoDoc}}" data-nombre="{{$tipodocumento->Descripcion}}" >Editar</a> 
+                    <a class="editar-btn-tipodocumento" href="" data-id="{{$tipodocumento->idTipoDoc}}" data-nombre="{{$tipodocumento->Descripcion}}" >Editar</a> 
                     <a href="#" class="eliminar-btn-tipodocumento" data-id="{{$tipodocumento->idTipoDoc}}" data-nombre="{{$tipodocumento->Descripcion}}">Eliminar</a>
                 </td>
             </tr>    

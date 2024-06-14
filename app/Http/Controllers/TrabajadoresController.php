@@ -56,9 +56,20 @@ class TrabajadoresController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($idTrabajador)
     {
-        //
+
+        $trabajador = Trabajador::findOrFail($idTrabajador);
+        $condicionLaboralActual = $trabajador->idCondicionLaboral; // Obtener la condición laboral actual del trabajador
+
+        // Obtener todas las condiciones laborales para llenar el select
+        $condicionesLaborales = CondicionLaboral::all(); // Asumiendo que tienes un modelo CondicionLaboral
+        
+        return response()->json([
+            'trabajador' => $trabajador,
+            'condicionesLaborales' => $condicionesLaborales,
+            'condicionLaboralActual' => $condicionLaboralActual,
+        ]);
     }
 
     /**
