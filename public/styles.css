@@ -929,3 +929,86 @@ body {
     border-color: #c3e6cb;
 }
 
+
+/*ESTILO ESTUDIOS*/
+.estudios {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 85%;
+    width: 95%;
+    margin-left: 30px;
+}
+
+.estudios h2 {
+    margin-top: 0;
+}
+
+.estudios form {
+    margin-bottom: 20px;
+}
+
+.trabajador-busqueda {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.trabajador-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.estudios table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.estudios th, .estudios td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.estudios th {
+    background-color: #f2f2f2;
+}
+
+.estudios input[type="text"],
+.estudios input[type="date"],
+.estudios select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.estudios input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.estudios input[type="submit"]:hover {
+    background-color: #0056b3;
+}

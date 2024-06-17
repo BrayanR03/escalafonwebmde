@@ -18,7 +18,7 @@
             <a class="movimientos-btn" href="#">Movimientos</a>
             <a class="nivelestudios-btn" href="{{route('nivelestudio.index')}}">Nivel de Estudios</a>
             <a class="institucion-btn" href="{{route('institucion.index')}}">Institución</a>
-            <a class="estudios-btn" href="#">Estudios</a>
+            <a class="estudios-btn" href="{{route('estudios.index')}}">Estudios</a>
             <a class="experiencia-btn" href="#">Experiencia Laboral</a>
             <a class="trabajadores-btn" href="{{route('trabajadores.index')}}">Trabajadores</a>
         </div>

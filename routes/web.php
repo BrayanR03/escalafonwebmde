@@ -72,6 +72,9 @@ Route::get('/trabajadores/search', [TrabajadoresController::class, 'show'])->nam
 Route::get('/trabajadores/actualizar','App\Http\Controllers\TrabajadoresController@update')->name('trabajadores.update');
 Route::delete('/trabajadores/eliminar','App\Http\Controllers\TrabajadoresController@destroy')->name('trabajadores.destroy');
 
+
+Route::resource('estudios','App\Http\Controllers\EstudiosController')->names('estudios');
+
 /*
 Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');
 Route::resource('institucion','App\Http\Controllers\InstitucionController')->names('institucion');
