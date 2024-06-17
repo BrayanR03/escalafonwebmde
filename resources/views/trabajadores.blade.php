@@ -66,7 +66,7 @@
     <section class="modal">
         <div class="modal__container">
             <h4 class="modal__title">Editar Trabajador</h4>
-            <form id="editform" action="" method="post">
+            <form id="editform" action="{{route('trabajadores.update')}}" method="post">
                 @csrf
                 @method('PATCH')
                 <label>ID Trabajador:</label>
@@ -86,10 +86,15 @@
                 </select>
                 <label >Fecha Nacimiento:</label>
                 <input type="date" name="FechaNacimiento-modal-trabajador" id="FechaNacimiento-modal-trabajador">
-                
-                <label >Condición Laboral:</label>
-                <select id="idCondicionLaboral-modal-trabajador" name="idCondicionLaboral-modal-trabajador">
-                </select>
+                @if ($condicionlaboralmodal)
+                    <label for="condicion_laboral">Condición Laboral:</label>
+                    <select id="idCondicionLaboral-modal-trabajador" name="idCondicionLaboral-modal-trabajador">
+                        <option value="">Seleccionar</option>
+                        @foreach ($condicionlaboralmodal as $condicionlaboralmodal)
+                            <option class="option-descripcion-condicion" id="option-descripcion-condicion" name="option-descripcion-condicion" value="{{$condicionlaboralmodal->idCondicionLaboral}}">{{$condicionlaboralmodal->Descripcion}}</option>
+                        @endforeach
+                    </select>
+                @endif                
                 <button class="modal__close">Cerrar</button>
                 <button class="modal__actualizar">Actualizar</button>
             </form>
@@ -99,7 +104,7 @@
     <section class="modal-eliminar">
         <div class="modal__container_eliminar">
             <h4 class="modal__title">ELIMINAR TRABAJADOR</h4>
-            <form id="editform" action="" method="post">
+            <form id="editform" action="{{route('trabajadores.destroy')}}" method="post">
                 @csrf
                 @method('DELETE')
                 <p>¿Deseas Eliminar al Trabajador?</p>
@@ -139,11 +144,12 @@
                 <td>{{$trabajadores->FechaNacimiento}}</td>
                 <td>{{$trabajadores->condicionlaboral->Descripcion}}</td>
                 <td>
-                    <a href="{{route('trabajadores.edit',$trabajadores->idTrabajador)}}" class="editar-btn-trabajador" data-id="{{$trabajadores->idTrabajador}}" data-paterno="{{$trabajadores->ApellidoPaterno}}" 
+                    <a href="" class="editar-btn-trabajador" data-id="{{$trabajadores->idTrabajador}}" data-paterno="{{$trabajadores->ApellidoPaterno}}" 
                         data-materno="{{$trabajadores->ApellidoMaterno}}" data-nombres="{{$trabajadores->Nombres}}" data-dni="{{$trabajadores->Dni}}"
-                        data-sexo="{{$trabajadores->Sexo}}" data-fechanacimiento="{{$trabajadores->FechaNacimiento}}"
+                        data-sexo="{{$trabajadores->Sexo}}" data-fechanacimiento="{{$trabajadores->FechaNacimiento}}" data-condicionlaboralid="{{$trabajadores->condicionlaboral->idCondicionLaboral}}"
                         data-condicionlaboral="{{$trabajadores->condicionlaboral->Descripcion}}">Editar</a> 
-                    <a href="#">Eliminar</a>
+                    <a href="" class="eliminar-btn-trabajador" data-id="{{$trabajadores->idTrabajador}}" data-apellidos="{{$trabajadores->ApellidoPaterno.' '.$trabajadores->ApellidoMaterno}}"
+                        data-nombres="{{$trabajadores->Nombres}}">Eliminar</a>
                 </td>
             </tr>
             @endforeach

@@ -14,8 +14,9 @@ class TrabajadoresController extends Controller
     public function index()
     {
         $condicionlaboral=CondicionLaboral::get();
+        $condicionlaboralmodal=CondicionLaboral::get();
         $trabajadores=Trabajador::with('condicionlaboral')->get();
-        return view('trabajadores',compact('condicionlaboral','trabajadores'));
+        return view('trabajadores',compact('condicionlaboralmodal','condicionlaboral','trabajadores'));
     }
 
     /**
@@ -56,35 +57,64 @@ class TrabajadoresController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($idTrabajador)
+    public function edit(string $idTrabajador)
     {
 
-        $trabajador = Trabajador::findOrFail($idTrabajador);
-        $condicionLaboralActual = $trabajador->idCondicionLaboral; // Obtener la condición laboral actual del trabajador
+        // $trabajador = Trabajador::findOrFail($idTrabajador);
+        // $condicionLaboralActual = $trabajador->idCondicionLaboral; // Obtener la condición laboral actual del trabajador
 
-        // Obtener todas las condiciones laborales para llenar el select
-        $condicionesLaborales = CondicionLaboral::all(); // Asumiendo que tienes un modelo CondicionLaboral
+        // // Obtener todas las condiciones laborales para llenar el select
+        // $condicionesLaborales = CondicionLaboral::all(); // Asumiendo que tienes un modelo CondicionLaboral
         
-        return response()->json([
-            'trabajador' => $trabajador,
-            'condicionesLaborales' => $condicionesLaborales,
-            'condicionLaboralActual' => $condicionLaboralActual,
-        ]);
+        // return response()->json([
+        //     'trabajador' => $trabajador,
+        //     'condicionesLaborales' => $condicionesLaborales,
+        //     'condicionLaboralActual' => $condicionLaboralActual,
+        // ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $apellidopaterno=$request->input('Paterno-modal-trabajador');
+        $apellidomaterno=$request->input('Materno-modal-trabajador');
+        $nombres=$request->input('Nombres-modal-trabajador');
+        $dni=$request->input('Dni-modal-trabajador');
+        $sexo=$request->input('Sexo-modal-trabajador');
+        $fechanacimiento=$request->input('FechaNacimiento-modal-trabajador');
+        $condicionlaboral=$request->input('idCondicionLaboral-modal-trabajador');
+        $idtrabajador=$request->input('idTrabajador');
+        Trabajador::where('idTrabajador',$idtrabajador)->update([
+            'ApellidoPaterno'=>$apellidopaterno,
+            'ApellidoMaterno'=>$apellidomaterno,
+            'Nombres'=>$nombres,
+            'Dni'=>$dni,
+            'Sexo'=>$sexo,
+            'FechaNacimiento'=>$fechanacimiento,
+            'idCondicionLaboral'=>$condicionlaboral
+        ]);
+
+        return redirect()->route('trabajadores.index')->with('success','Trabajador Actualizado Correctamente');
+
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $idtrabajador=$request->input('idTrabajadorEliminar');
+        $trabajador=Trabajador::find($idtrabajador);
+        if ($trabajador) {
+            $trabajador->delete();
+            return redirect()->route('trabajadores.index')->with('success','Trabajador Eliminado Correctamente');
+        } else {
+            return redirect()->route('trabajadores.index')->with('success','No se encontro el trabajador');
+            
+        }
+        
     }
 }

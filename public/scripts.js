@@ -842,6 +842,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sexoInput=document.querySelector('#Sexo-modal-trabajador');
     const fechaNacimientoInput=document.querySelector('#FechaNacimiento-modal-trabajador');
     const condicionlaboralInput=document.querySelector('#idCondicionLaboral-modal-trabajador');
+    const opcionesSelect = condicionlaboralInput.querySelectorAll('#option-descripcion-condicion');
+
     //const editform = document.querySelector('#editform');
 
     if (openModalButtons.length > 0 && modal && closeModal) {
@@ -851,7 +853,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 modal.classList.add('modal--show');
                 console.log("DISTE CLICK EN EDITAR");
 
-                // Obtener el ID del área y otros datos para rellenar el modal
+                // Obtener el ID del área y otros datos para rellenar el modal de la tabla
                 const areaId = button.dataset.id;
                 const paterno = button.dataset.paterno;
                 const materno = button.dataset.materno;
@@ -859,7 +861,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dni = button.dataset.dni;
                 const sexo=button.dataset.sexo;
                 const fechanacimiento=button.dataset.fechanacimiento;
-                // const condicionlaboral=button.dataset.condicionlaboral;
+                const condicionlaboral=button.dataset.condicionlaboralid;
+                
                 // Rellenar los campos del modal con los datos del área
                 idAreaInput.value = areaId;
                 nombreInput.value = nombres;
@@ -870,24 +873,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 fechaNacimientoInput.value=fechanacimiento;
                 // condicionlaboralInput.value=condicionlaboral;
                 
-                const condicionesLaborales = JSON.parse(button.dataset.condicioneslaborales);
-                const condicionLaboralActual = button.dataset.condicionlaboral;
-
-                // Limpiar opciones anteriores del select
-                condicionLaboralInput.innerHTML = '';
-
-                // Iterar sobre las condiciones laborales y agregarlas como opciones al select
-                condicionesLaborales.forEach(condicion => {
-                    const option = document.createElement('option');
-                    option.value = condicion.idCondicionLaboral;
-                    option.textContent = condicion.Descripcion;
-                    if (condicion.idCondicionLaboral === condicionLaboralActual) {
-                        option.selected = true; // Seleccionar la opción actual
+                console.log("============VALORES DEL SELECT DEL MODAL==============");
+                opcionesSelect.forEach(opcion=>{
+                    
+                    if(condicionlaboral===opcion.value){
+                        console.log("==================IGUALESSS");
+                        opcion.selected=true;
                     }
-                    condicionLaboralInput.appendChild(option);
+                    
                 });
-                console.log("==================================");
-                console.log(condicionlaboral);
+
+                // opcionesSelect.forEach(opcion => {
+                //   if(opcion==="PRUEBA1-CONDICIONLAB"){
+                //     opcion.selected=true;
+                //   }  
+                //     // if (condicionlaboralInput.value ===opcion.value ) {
+                //     //   opcion.selected = true;
+                //     // }
+                //   }
+                // )
+                // ;
                 // editform.action='/areas/${idArea}';
             });
         });
@@ -902,11 +907,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const openModalButtons = document.querySelectorAll('.eliminar-btn-institucion');
+    const openModalButtons = document.querySelectorAll('.eliminar-btn-trabajador');
     const modal = document.querySelector('.modal-eliminar');
     const closeModaleliminar = document.querySelector('.modal__close__eliminar');
-    const idAreaInput = document.querySelector('#idInstitucionEliminar');
-    const nombreInput = document.querySelector('#NombreInstitucionEliminar');
+    const idAreaInput = document.querySelector('#idTrabajadorEliminar');
+    const nombreInput = document.querySelector('#NombreTrabajadorEliminar');
     //const editform = document.querySelector('#editform');
 
     if (openModalButtons.length > 0 && modal && closeModaleliminar) {
@@ -918,8 +923,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const idareaget = button.dataset.id;
                 idAreaInput.value = idareaget;
-                const nombrearea = button.dataset.nombre;
-                nombreInput.value = nombrearea;
+                const trabajador = button.dataset.apellidos+", "+button.dataset.nombres;
+                nombreInput.value = trabajador;
                 // editform.action='/areas/${idArea}';
             });
         });
