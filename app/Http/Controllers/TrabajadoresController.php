@@ -43,6 +43,7 @@ class TrabajadoresController extends Controller
     public function show(Request $request)
     {
         $condicionlaboral=CondicionLaboral::get();
+        $condicionlaboralmodal=CondicionLaboral::get();
         $query=$request->input('search');
         $trabajadores = Trabajador::with('condicionLaboral')
         ->where('Dni', 'LIKE', '%' . $query . '%')
@@ -51,7 +52,7 @@ class TrabajadoresController extends Controller
         if($trabajadores->isEmpty()){
             $trabajadores=[];
         }
-        return view('trabajadores',compact('condicionlaboral','trabajadores'));
+        return view('trabajadores',compact('condicionlaboralmodal','condicionlaboral','trabajadores'));
     }
 
     /**
