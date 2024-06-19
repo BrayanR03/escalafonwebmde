@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Estudio;
+use App\Models\Institucion;
+use App\Models\NivelEstudio;
 use Illuminate\Http\Request;
 
 class EstudiosController extends Controller
@@ -11,7 +13,9 @@ class EstudiosController extends Controller
      */
     public function index()
     {
-        return view('estudios');
+        $instituciones=Institucion::get();
+        $nivelestudios=NivelEstudio::get();
+        return view('estudios',compact('instituciones','nivelestudios'));
     }
 
     /**
@@ -33,9 +37,16 @@ class EstudiosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        $query=$request->input('search');
+        $trabajadores = Trabajador::where('Dni', 'LIKE', '%' . $query . '%')
+        ->orWhere('ApellidoPaterno', 'LIKE', '%' . $query . '%')
+        ->get();
+        if($trabajadores->isEmpty()){
+            $trabajadores=[];
+        }
+        return view('trabajadores',compact('trabajadores'));
     }
 
     /**
