@@ -14,10 +14,11 @@ class EstudiosController extends Controller
      */
     public function index()
     {
-        $instituciones=Institucion::get();
-        $nivelestudios=NivelEstudio::get();
-        $trabajadores=[];
-        return view('estudios',compact('instituciones','nivelestudios','trabajadores'));
+        $instituciones = Institucion::get();
+        $nivelestudios = NivelEstudio::get();
+        $trabajadores = [];
+        
+        return view('estudios', compact('instituciones', 'nivelestudios', 'trabajadores'));
     }
 
     /**
@@ -41,19 +42,18 @@ class EstudiosController extends Controller
      */
     public function show(Request $request)
     {
-        $query=$request->input('search');
-        $trabajadores = Trabajador::where('Dni', 'LIKE', '%' . $query . '%')
-        ->orWhere('ApellidoPaterno', 'LIKE', '%' . $query . '%')
-        ->get();
-        if($trabajadores->isEmpty()){
-            $trabajadores=[];
-        }
+        $query = $request->input('search');
+        $trabajadores = Trabajador::where('Dni', $query )
+            ->orWhere('ApellidoPaterno', $query)
+            ->get();
         
-        $instituciones=Institucion::get();
-        $nivelestudios=NivelEstudio::get();
-        // dd($trabajadores);
-        return view('estudios',compact('instituciones','nivelestudios','trabajadores'));
-        // return view('estudios',compact('trabajadores'));
+        if ($trabajadores->isEmpty()) {
+            $trabajadores = [];
+        }
+
+        $instituciones = Institucion::get();
+        $nivelestudios = NivelEstudio::get();        
+        return view('estudios', compact('instituciones', 'nivelestudios', 'trabajadores'));
     }
 
     /**

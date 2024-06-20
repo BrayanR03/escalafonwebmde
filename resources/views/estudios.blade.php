@@ -32,11 +32,10 @@
                     <select id="idInstitucion" name="idInstitucion">
                         <option value="">Seleccionar</option>
                         @foreach ($instituciones as $instituciones)
-                            <option value="{{$instituciones->idInstitucion}}" {{old('idInstitucion')==$instituciones->idInstitucion?'selected':''}}>{{$instituciones->Nombre}}</option>
+                        <option value="{{$instituciones->idInstitucion}}">{{$instituciones->Nombre}}</option>
                         @endforeach
                     </select>
-                    @endif
-                        
+                    @endif                        
                 </div>
                 
                 <!-- Combo de Nivel de Estudios -->
