@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Estudio;
 use App\Models\Institucion;
 use App\Models\NivelEstudio;
+use App\Models\Trabajador;
 use Illuminate\Http\Request;
 
 class EstudiosController extends Controller
@@ -15,7 +16,8 @@ class EstudiosController extends Controller
     {
         $instituciones=Institucion::get();
         $nivelestudios=NivelEstudio::get();
-        return view('estudios',compact('instituciones','nivelestudios'));
+        $trabajadores=[];
+        return view('estudios',compact('instituciones','nivelestudios','trabajadores'));
     }
 
     /**
@@ -46,7 +48,12 @@ class EstudiosController extends Controller
         if($trabajadores->isEmpty()){
             $trabajadores=[];
         }
-        return view('trabajadores',compact('trabajadores'));
+        
+        $instituciones=Institucion::get();
+        $nivelestudios=NivelEstudio::get();
+        // dd($trabajadores);
+        return view('estudios',compact('instituciones','nivelestudios','trabajadores'));
+        // return view('estudios',compact('trabajadores'));
     }
 
     /**
