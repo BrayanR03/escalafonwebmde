@@ -16,9 +16,9 @@ class EstudiosController extends Controller
     {
         $instituciones = Institucion::get();
         $nivelestudios = NivelEstudio::get();
-        $trabajadores = [];
+        //$trabajadores = [];
         
-        return view('estudios', compact('instituciones', 'nivelestudios', 'trabajadores'));
+        return view('estudios', compact('instituciones', 'nivelestudios'));
     }
 
     /**
@@ -53,7 +53,7 @@ class EstudiosController extends Controller
 
         $instituciones = Institucion::get();
         $nivelestudios = NivelEstudio::get();        
-        return view('estudios', compact('instituciones', 'nivelestudios', 'trabajadores'));
+        return view('estudios', compact('instituciones', 'nivelestudios'));
     }
 
     /**

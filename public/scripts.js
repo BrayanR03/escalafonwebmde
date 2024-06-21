@@ -956,3 +956,23 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /**===================================================================================== */
+
+$(document).ready(function() {
+    $('#search-form-estudio').submit(function(event) {
+        event.preventDefault(); // Evita el envío del formulario
+
+        var formData = $(this).serialize(); // Serializa los datos del formulario
+
+        $.ajax({
+            type: 'GET',
+            url: $(this).attr('action'),
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                $('#idTrabajador').val(response.idTrabajador);
+                $('#Nombres').val(response.Nombres);
+                $('#Apellidos').val(response.Apellidos);
+            }
+        });
+    });
+});

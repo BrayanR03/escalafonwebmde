@@ -57,51 +57,30 @@
         <!-- Cuadro de búsqueda del trabajador -->
         <div class="trabajador-cuadro-estudio">
             <!-- Formulario de búsqueda de trabajadores -->
-            <form class="search-form-estudio" action="{{route('estudios.search')}}" method="GET">
+            <form class="search-form-estudio" id="search-form-estudio" name="search-form-estudio" action="{{route('buscarTrabajador')}}" method="GET">
                 <label for="search">Buscar Trabajador:</label>
                 <input type="text" id="search" autocomplete="off" required name="search" placeholder="Ingrese DNI o Apellido del trabajador">
                 <input type="submit" value="Buscar">
             </form>
-
+            
             <!-- Información del trabajador -->
-            @if ($trabajadores)
-            @foreach ($trabajadores as $trabajador)
             <div class="trabajador-info-estudio">
                 <div class="form-group">
                     <label for="idTrabajador">ID Trabajador:</label>
-                    <input type="text" required id="idTrabajador" value="{{$trabajador->idTrabajador}}" autocomplete="off" name="idTrabajador"  placeholder="ID del trabajador" readonly>
+                    <input type="text" required id="idTrabajador" value="" autocomplete="off" name="idTrabajador"  placeholder="ID del trabajador" readonly>
                 </div>
                 <div class="form-group">
                     <label for="nombres">Nombres:</label>
-                    <input type="text" required id="Nombres" autocomplete="off" name="Nombres" value="{{$trabajador->Nombres}}"  placeholder="Nombres del trabajador" readonly>
+                    <input type="text" required id="Nombres" autocomplete="off" name="Nombres" value=""  placeholder="Nombres del trabajador" readonly>
                 </div>
                 <div class="form-group">
                     <label for="apellidos">Apellidos:</label>
-                    <input type="text" required id="Apellidos" autocomplete="off" name="Apellidos" value="{{$trabajador->ApellidoPaterno.' '.$trabajador->ApellidoMaterno}}" placeholder="Apellidos del trabajador" readonly>
+                    <input type="text" required id="Apellidos" autocomplete="off" name="Apellidos" value="" placeholder="Apellidos del trabajador" readonly>
                 </div>
-            </div>
-            @endforeach
-            @else
-            <div class="trabajador-info-estudio">
-                <div class="form-group">
-                    <label for="idTrabajador">ID Trabajador:</label>
-                    <input type="text" required id="idTrabajador"  autocomplete="off" name="idTrabajador"  placeholder="ID del trabajador" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="nombres">Nombres:</label>
-                    <input type="text" required id="Nombres" autocomplete="off" name="Nombres"   placeholder="Nombres del trabajador" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="apellidos">Apellidos:</label>
-                    <input type="text" required id="Apellidos" autocomplete="off" name="Apellidos"  placeholder="Apellidos del trabajador" readonly>
-                </div>
-            </div>
-            @endif
-                            
+            </div>                    
                        
         </div>
     </div>
-    
     <!-- Botón de guardar -->
     <input type="submit" value="Guardar" class="btn-guardar">
     

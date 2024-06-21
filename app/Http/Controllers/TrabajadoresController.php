@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateTrabajadoresRequest;
 use Illuminate\Http\Request;
 use App\Models\Trabajador;
+use Illuminate\Support\Facades\DB;
 use App\Models\CondicionLaboral;
 class TrabajadoresController extends Controller
 {
@@ -55,6 +56,24 @@ class TrabajadoresController extends Controller
         return view('trabajadores',compact('condicionlaboralmodal','condicionlaboral','trabajadores'));
     }
 
+    public function buscarTrabajador(Request $request){
+
+        $busqueda=$request->input('search');
+
+        $trabajador=Trabajador::where('Dni',$busqueda)
+        ->orWhere('ApellidoPaterno',$busqueda)
+        ->first();
+        dd($trabajador);
+        if($trabajador){
+            return response()->json([
+                'idTrabajador'=>$trabajador->idTrabajador,
+                'Nombres'=>$trabajador->Nombres,
+                'Apellidos'=>$trabajador->ApellidoPaterno .', '. $trabajador->ApellidoMaterno
+            ]);
+        }else{
+            return view('estudios');
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      */
