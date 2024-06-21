@@ -32,7 +32,7 @@
                     <select id="idInstitucion" name="idInstitucion">
                         <option value="">Seleccionar</option>
                         @foreach ($instituciones as $instituciones)
-                        <option value="{{$instituciones->idInstitucion}}">{{$instituciones->Nombre}}</option>
+                        <option value="{{old('idInstitucion',$instituciones->idInstitucion)}}">{{$instituciones->Nombre}}</option>
                         @endforeach
                     </select>
                     @endif                        
@@ -45,7 +45,7 @@
                         <select id="idNivelEstudios" name="idNivelEstudios">
                             <option value="">Seleccionar</option>
                             @foreach ($nivelestudios as $nivelestudios)
-                                <option value="{{$nivelestudios->idNivelEstudio}}">{{$nivelestudios->Descripcion}}</option>
+                                <option value="{{old('idNivelEstudio',$nivelestudios->idNivelEstudio)}}">{{$nivelestudios->Descripcion}}</option>
                             @endforeach
                         </select>
                     @endif
