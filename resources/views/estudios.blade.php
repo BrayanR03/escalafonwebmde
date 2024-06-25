@@ -8,10 +8,10 @@
             {{ session('success') }}
         </div>
     @endif
-    <form class="search-form" action="" method="GET">
-        <label for="search">Buscar Estudios:</label>
-        <input type="text" id="search" autocomplete="off" name="search" placeholder="Ingrese nombre de institución">
-        <input type="submit" value="Buscar">
+    <form class="search-form" action="{{route('estudios.search')}}" method="GET">
+        <label for="search">Buscar Estudios del Trabajador:</label><br>
+        <input type="text" id="search" required autocomplete="off" name="search" placeholder="Ingrese DNI del Trabajador" >
+        <input type="submit" value="Buscar Estudio ">
     </form>
     <!-- Formulario de Estudios -->
     <div class="form-container-estudio">
@@ -37,7 +37,7 @@
                     </select>
                     @endif                        
                 </div>
-                <input class="idTrabajadorEstudio" id="idTrabajador" type="text" readonly>
+                <input hidden class="idTrabajador" id="idTrabajador" name="idTrabajador" type="text" readonly>
                 <!-- Combo de Nivel de Estudios -->
                 <div class="form-group-estudio-nivel">
                     <label for="nivelestudios">Nivel de Estudios:</label>
@@ -70,8 +70,8 @@
             <!-- Información del trabajador -->
             <div class="trabajador-info-estudio">
                 <div class="form-group">
-                    <label for="idTrabajador">ID Trabajador:</label>
-                    <input type="text" class="idTrabajador" id="idTrabajador" value="" autocomplete="off" name="idTrabajador"  placeholder="ID del trabajador" readonly>
+                    {{-- <label for="idTrabajador">ID Trabajador:</label> --}}
+                    {{-- <input type="text" class="idTrabajador" id="idTrabajador" value="" autocomplete="off" name="idTrabajador"  placeholder="ID del trabajador" readonly> --}}
                 </div>
                 <div class="form-group">
                     <label for="nombres">Nombres:</label>
@@ -92,31 +92,49 @@
         <thead>
             <tr>
                 <th>ID Estudio</th>
-                <th>ID Trabajador</th>
+                <th hidden>ID Trabajador</th>
+                <th>Trabajador</th>
                 <th>Descripción</th>
+                <th hidden>ID Nivel Estudios</th>
                 <th>Nivel de Estudios</th>
+                <th hidden>ID Institucion</th>
                 <th>Institución</th>
                 <th>Acciones</th>
             </tr>
         </thead>
+        @if ($estudios->count())
         <tbody>
+            @foreach ($estudios as $estudio)
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <a href="" >Editar</a> 
-                        <a href="" >Eliminar</a>
-                    </td>
+                        <td>{{$estudio->idEstudios}}</td>
+                        <td hidden>{{$estudio->trabajador->idTrabajador}}</td>
+                        <td>{{$estudio->trabajador->ApellidoPaterno.' '.$estudio->trabajador->ApellidoMaterno.', '.$estudio->trabajador->Nombres}}</td>
+                        <td>{{$estudio->Descripcion}}</td>
+                        <td hidden>{{$estudio->nivelestudios->idNivelEstudios}}</td>
+                        <td>{{$estudio->nivelestudios->Descripcion}}</td>
+                        <td hidden>{{$estudio->institucion->idInstitucion}}</td>
+                        <td>{{$estudio->institucion->Nombre}}</td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="editarEstudio(
+                            '{{$estudio->idEstudios}}',
+                            '{{$estudio->Descripcion}}',
+                            '{{$estudio->nivelestudios->idNivelEstudios}}',
+                            '{{$estudio->institucion->idInstitucion}}',
+                            '{{$estudio->trabajador->idTrabajador}}',
+                            '{{$estudio->trabajador->Nombres}}',
+                            '{{$estudio->trabajador->ApellidoPaterno.' '.$estudio->trabajador->ApellidoMaterno}}')" >Editar</a> 
+                            <a href="" >Eliminar</a>
+                        </td>
                 </tr>
+                @endforeach
         </tbody>
+        @endif
     </table>
+    {{$estudios->links()}}
 </div>
 
 <!-- Modal para editar estudio -->
-<section class="modal">
+{{-- <section class="modal">
     <div class="modal__container">
         <h4 class="modal__title">Editar Estudio</h4>
         <form id="editform" action="" method="post">
@@ -138,7 +156,7 @@
             <button class="modal__actualizar">Actualizar</button>
         </form>
     </div>
-</section>
+</section> --}}
 
 <!-- Modal para eliminar estudio -->
 <section class="modal-eliminar">

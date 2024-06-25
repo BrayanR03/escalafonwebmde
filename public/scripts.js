@@ -1010,3 +1010,51 @@ $(document).ready(function() {
         });
     });
 });
+
+/* ENVIO DE DATOS A EDITAR EN MODULO ESTUDIOS */
+// editarEstudio.js
+
+// function editarEstudio(idEstudio, descripcion, idNivelEstudios, idInstitucion, idTrabajador, nombres, apellidos) {
+//     // Asigna los valores a los campos del formulario
+//     console.log("Valores recibidos:");
+//     console.log("idEstudio:", idEstudio);
+//     document.getElementById('idEstudio').value = idEstudio;
+//     document.getElementById('Descripcion').value = descripcion;
+//     document.getElementById('idTrabajador').value = idTrabajador;
+//     document.getElementById('idNivelEstudios').value = idNivelEstudios;
+//     document.getElementById('idInstitucion').value = idInstitucion;
+
+//     // Seleccionar opciones en los selects
+//     document.getElementById('idNivelEstudios').value = idNivelEstudios;
+//     document.getElementById('idInstitucion').value = idInstitucion;
+
+//     // Otro ejemplo para mostrar nombres y apellidos
+//     document.getElementById('Nombres').value = nombres;
+//     document.getElementById('Apellidos').value = apellidos;
+// }
+
+// editarEstudio.js
+
+    function editarEstudio(idEstudio, descripcion, idNivelEstudios, idInstitucion, idTrabajador, nombres, apellidos) {
+        // Verifica que los elementos existan antes de manipularlos
+        var idEstudioInput = document.getElementById('idEstudio');
+        var descripcionInput = document.getElementById('Descripcion');
+        var idTrabajadorInput = document.getElementById('idTrabajador');
+        var idNivelEstudiosSelect = document.getElementById('idNivelEstudios');
+        var idInstitucionSelect = document.getElementById('idInstitucion');
+        var nombresInput = document.getElementById('nombres');
+        var apellidosInput = document.getElementById('apellidos');
+
+        if (idEstudioInput && descripcionInput && idTrabajadorInput && idNivelEstudiosSelect && idInstitucionSelect && nombresInput && apellidosInput) {
+            // Asigna los valores a los campos del formulario
+            idEstudioInput.value = idEstudio;
+            descripcionInput.value = descripcion;
+            idTrabajadorInput.value = idTrabajador;
+            idNivelEstudiosSelect.value = idNivelEstudios;
+            idInstitucionSelect.value = idInstitucion;
+            nombresInput.value = nombres;
+            apellidosInput.value = apellidos;
+        } else {
+            console.error('No se encontraron todos los elementos necesarios para editar el estudio.');
+        }
+    }
