@@ -59,11 +59,10 @@ class TrabajadoresController extends Controller
     public function buscarTrabajador(Request $request){
 
         $busqueda=$request->input('search');
-
+        //dd($busqueda);
         $trabajador=Trabajador::where('Dni',$busqueda)
-        ->orWhere('ApellidoPaterno',$busqueda)
         ->first();
-        dd($trabajador);
+        // dd($trabajador);
         if($trabajador){
             return response()->json([
                 'idTrabajador'=>$trabajador->idTrabajador,
@@ -71,7 +70,9 @@ class TrabajadoresController extends Controller
                 'Apellidos'=>$trabajador->ApellidoPaterno .', '. $trabajador->ApellidoMaterno
             ]);
         }else{
-            return view('estudios');
+            // return redirect()->route('estudios.index');
+            // return redirect()->route('estudios.index')->with('success','Trabajador No Encontrado');
+            
         }
     }
     /**

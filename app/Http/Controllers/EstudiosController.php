@@ -6,6 +6,7 @@ use App\Models\Institucion;
 use App\Models\NivelEstudio;
 use App\Models\Trabajador;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateEstudiosRequest;
 
 class EstudiosController extends Controller
 {
@@ -32,9 +33,14 @@ class EstudiosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateEstudiosRequest $request)
     {
-        //
+        $estudios->idTrabajador=$request->input('idTrabajador');
+        dd($estudios);
+        $estudios=new Estudio($request->validated());
+        $estudios->save();
+        return redirect()->route('estudios.index');
+
     }
 
     /**

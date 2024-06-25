@@ -955,7 +955,37 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
+
 /**===================================================================================== */
+
+// $(document).ready(function() {
+//     $('#search-form-estudio').on('submit', function(event) {
+//         event.preventDefault();
+        
+//         // let searchQuery = $('#search').val();
+//         var formData = $(this).serialize();
+//         $.ajax({
+//             url: $(this).attr('action'),
+//             method: 'GET',
+//             data: formData,
+//             success: function(response) {
+//                 if(response.idTrabajador) {
+//                     $('#idTrabajador').val(response.idTrabajador);
+//                     $('#Nombres').val(response.Nombres);
+//                     $('#Apellidos').val(response.Apellidos);
+//                 } else {
+//                     alert('Trabajador no encontrado');
+//                 }
+//             },
+//             error: function(response) {
+//                 alert('Error al buscar el trabajador');
+//             }
+//         });
+//     });
+// });
+
+
 
 $(document).ready(function() {
     $('#search-form-estudio').submit(function(event) {
@@ -969,9 +999,13 @@ $(document).ready(function() {
             data: formData,
             dataType: 'json',
             success: function(response) {
-                $('#idTrabajador').val(response.idTrabajador);
+                $('.idTrabajador').val(response.idTrabajador);
                 $('#Nombres').val(response.Nombres);
                 $('#Apellidos').val(response.Apellidos);
+                $('#idTrabajadorEstudio').val(response.idTrabajador);
+                                
+            },error: function(response) {
+                alert('El Trabajador No Existe');
             }
         });
     });

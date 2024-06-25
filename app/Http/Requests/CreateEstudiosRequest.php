@@ -11,7 +11,7 @@ class CreateEstudiosRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,19 @@ class CreateEstudiosRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'Descripcion'=>'required',
+            'idInstitucion'=>'required|exists:institucion,idInstitucion',
+            'idNivelEstudios'=>'required|exists:nivelestudios,idNivelEstudios',
+            'idTrabajador'=>'required'
+        ];
+    }
+
+    public function messages(){
+        return [
+            'Descripcion.required'=>'Necesitas Ingresar Una descripcion del Estudio',
+            'idInstitucion.required'=>'Necesitas Seleccionar una Institucion',
+            'idNivelEstudios.required'=>'Necesitas Seleccionar un Nivel de Estudios',
+            'idTrabajador.required'=>'Necesitas Un Trabajador para Asginar este Estudio'
         ];
     }
 }
