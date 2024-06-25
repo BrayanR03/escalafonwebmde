@@ -106,7 +106,7 @@
         <tbody>
             @foreach ($estudios as $estudio)
                 <tr>
-                        <td>{{$estudio->idEstudios}}</td>
+                        <td class="idEstudio">{{$estudio->idEstudios}}</td>
                         <td hidden>{{$estudio->trabajador->idTrabajador}}</td>
                         <td>{{$estudio->trabajador->ApellidoPaterno.' '.$estudio->trabajador->ApellidoMaterno.', '.$estudio->trabajador->Nombres}}</td>
                         <td>{{$estudio->Descripcion}}</td>
@@ -115,14 +115,7 @@
                         <td hidden>{{$estudio->institucion->idInstitucion}}</td>
                         <td>{{$estudio->institucion->Nombre}}</td>
                         <td>
-                            <a href="javascript:void(0)" onclick="editarEstudio(
-                            '{{$estudio->idEstudios}}',
-                            '{{$estudio->Descripcion}}',
-                            '{{$estudio->nivelestudios->idNivelEstudios}}',
-                            '{{$estudio->institucion->idInstitucion}}',
-                            '{{$estudio->trabajador->idTrabajador}}',
-                            '{{$estudio->trabajador->Nombres}}',
-                            '{{$estudio->trabajador->ApellidoPaterno.' '.$estudio->trabajador->ApellidoMaterno}}')" >Editar</a> 
+                            <a href="" data-id="{{$estudio->idEstudios}}" >Editar</a> 
                             <a href="" >Eliminar</a>
                         </td>
                 </tr>
