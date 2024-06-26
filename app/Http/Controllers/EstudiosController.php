@@ -15,7 +15,7 @@ class EstudiosController extends Controller
      */
     public function index()
     {
-        $estudios=Estudio::paginate(2);
+        $estudios=Estudio::paginate(5);
         $instituciones = Institucion::get();
         $nivelestudios = NivelEstudio::get();
         //$trabajadores = [];
@@ -28,7 +28,12 @@ class EstudiosController extends Controller
      */
     public function create()
     {
-        //
+        
+        $instituciones = Institucion::get();
+        $nivelestudios = NivelEstudio::get();
+        return view('estudios.create',compact('instituciones','nivelestudios'),[
+            'estudios'=>new Estudio
+        ]);
     }
 
     /**
@@ -52,7 +57,7 @@ class EstudiosController extends Controller
         $query = $request->input('search');
         $trabajador=Trabajador::where('Dni',$query)->first();
         // dd($trabajador);
-        $estudios=Estudio::where('idTrabajador',$trabajador->idTrabajador)->paginate(2);
+        $estudios=Estudio::where('idTrabajador',$trabajador->idTrabajador)->paginate(5);
         if($estudios->isEmpty()){
             $estudios=[];
         }        

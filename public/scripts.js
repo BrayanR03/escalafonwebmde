@@ -1036,18 +1036,18 @@ $(document).ready(function() {
 // editarEstudio.js
 // editarEstudio.js
 
-document.addEventListener('DOMContentLoaded', ()=> {
+// document.addEventListener('DOMContentLoaded', ()=> {
     //function editarEstudio(idEstudio, descripcion, idNivelEstudios, idInstitucion, idTrabajador, nombres, apellidos) {
         // Verifica que los elementos existan antes de manipularlos
-        let idEstudioInput = document.querySelector('#idEstudio');
-        e.preventDefault();
+        // let idEstudioInput = document.querySelector('#idEstudio');
+        // e.preventDefault();
         // let descripcionInput = document.getElementById('Descripcion');
         // let idTrabajadorInput = document.getElementById('idTrabajador');
         // let idNivelEstudiosSelect = document.getElementById('idNivelEstudios');
         // let idInstitucionSelect = document.getElementById('idInstitucion');
         // let nombresInput = document.getElementById('Nombres');
         // let apellidosInput = document.getElementById('Apellidos');
-        console.log(idEstudioInput);
+        // console.log(idEstudioInput);
 
         // if (idEstudioInput && descripcionInput && idTrabajadorInput && idNivelEstudiosSelect && idInstitucionSelect && nombresInput && apellidosInput) {
         //     // Asigna los valores a los campos del formulario
@@ -1062,28 +1062,43 @@ document.addEventListener('DOMContentLoaded', ()=> {
         //     console.error('No se encontraron todos los elementos necesarios para editar el estudio.');
         // }
     //}
-});
+// });
 
-    // function editarEstudio(idEstudio, descripcion, idNivelEstudios, idInstitucion, idTrabajador, nombres, apellidos) {
-    //     // Verifica que los elementos existan antes de manipularlos
-    //     let idEstudioInput = document.getElementById('idEstudio');
-    //     let descripcionInput = document.getElementById('Descripcion');
-    //     let idTrabajadorInput = document.getElementById('idTrabajador');
-    //     let idNivelEstudiosSelect = document.getElementById('idNivelEstudios');
-    //     let idInstitucionSelect = document.getElementById('idInstitucion');
-    //     let nombresInput = document.getElementById('Nombres');
-    //     let apellidosInput = document.getElementById('pellidos');
-    //     console.log(idEstudioInput);
-    //     if (idEstudioInput && descripcionInput && idTrabajadorInput && idNivelEstudiosSelect && idInstitucionSelect && nombresInput && apellidosInput) {
-    //         // Asigna los valores a los campos del formulario
-    //         idEstudioInput.value = idEstudio;
-    //         descripcionInput.value = descripcion;
-    //         idTrabajadorInput.value = idTrabajador;
-    //         idNivelEstudiosSelect.value = idNivelEstudios;
-    //         idInstitucionSelect.value = idInstitucion;
-    //         nombresInput.value = nombres;
-    //         apellidosInput.value = apellidos;
-    //     } else {
-    //         console.error('No se encontraron todos los elementos necesarios para editar el estudio.');
-    //     }
-    // }
+    function editarEstudio(elemento) {
+        // Verifica que los elementos existan antes de manipularlos
+        let fila=elemento.parentNode.parentNode;
+        let idEstudioTabla = fila.cells[0].innerText;
+        let idTrabajadorTabla=fila.cells[1].innerText;
+        let apellidosTrabajadorTabla=fila.cells[2].innerText;
+        let nombresTrabajadorTabla=fila.cells[3].innerText;
+        let descripcionEstudioTabla=fila.cells[5].innerText;
+        let idInstitucionTabla=fila.cells[8].innerText;
+        let idNivelEstudiosTabla=fila.cells[6].innerText;
+        document.getElementById('idEstudio').value=idEstudioTabla;
+        document.getElementById('idTrabajador').value=idTrabajadorTabla;
+        document.getElementById('Apellidos').value=apellidosTrabajadorTabla;
+        document.getElementById('Nombres').value=nombresTrabajadorTabla;
+        document.getElementById('Descripcion').value=descripcionEstudioTabla;
+        document.getElementById('idInstitucion').value=idInstitucionTabla;
+        document.getElementById('idNivelEstudios').value=idNivelEstudiosTabla;
+        document.getElementById('btn-guardar-estudio').value='Actualizar';
+        // let descripcionInput = document.getElementById('Descripcion');
+        // let idTrabajadorInput = document.getElementById('idTrabajador');
+        // let idNivelEstudiosSelect = document.getElementById('idNivelEstudios');
+        // let idInstitucionSelect = document.getElementById('idInstitucion');
+        // let nombresInput = document.getElementById('Nombres');
+        // let apellidosInput = document.getElementById('Apellidos');
+        
+        // if (idEstudioInput && descripcionInput && idTrabajadorInput && idNivelEstudiosSelect && idInstitucionSelect && nombresInput && apellidosInput) {
+        //     // Asigna los valores a los campos del formulario
+        //     idEstudioInput.value = idEstudio;
+        //     descripcionInput.value = descripcion;
+        //     idTrabajadorInput.value = idTrabajador;
+        //     idNivelEstudiosSelect.value = idNivelEstudios;
+        //     idInstitucionSelect.value = idInstitucion;
+        //     nombresInput.value = nombres;
+        //     apellidosInput.value = apellidos;
+        // } else {
+        //     console.error('No se encontraron todos los elementos necesarios para editar el estudio.');
+        // }
+    }
