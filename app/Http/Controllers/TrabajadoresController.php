@@ -16,7 +16,7 @@ class TrabajadoresController extends Controller
     {
         $condicionlaboral=CondicionLaboral::get();
         $condicionlaboralmodal=CondicionLaboral::get();
-        $trabajadores=Trabajador::with('condicionlaboral')->get();
+        $trabajadores=Trabajador::paginate(5);
         return view('trabajadores',compact('condicionlaboralmodal','condicionlaboral','trabajadores'));
     }
 
@@ -25,7 +25,10 @@ class TrabajadoresController extends Controller
      */
     public function create()
     {
-        //
+        $condicionlaboral=CondicionLaboral::get();
+        return view('trabajadores.create',compact('condicionlaboral'),[
+            'trabajadores'=>new Trabajador
+        ]);
     }
 
     /**
@@ -49,7 +52,7 @@ class TrabajadoresController extends Controller
         $trabajadores = Trabajador::with('condicionLaboral')
         ->where('Dni', 'LIKE', '%' . $query . '%')
         ->orWhere('ApellidoPaterno', 'LIKE', '%' . $query . '%')
-        ->get();
+        ->paginate(5);
         if($trabajadores->isEmpty()){
             $trabajadores=[];
         }
@@ -78,46 +81,41 @@ class TrabajadoresController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $idTrabajador)
+    public function edit(Trabajador $trabajador)
     {
-
-        // $trabajador = Trabajador::findOrFail($idTrabajador);
-        // $condicionLaboralActual = $trabajador->idCondicionLaboral; // Obtener la condición laboral actual del trabajador
-
-        // // Obtener todas las condiciones laborales para llenar el select
-        // $condicionesLaborales = CondicionLaboral::all(); // Asumiendo que tienes un modelo CondicionLaboral
         
-        // return response()->json([
-        //     'trabajador' => $trabajador,
-        //     'condicionesLaborales' => $condicionesLaborales,
-        //     'condicionLaboralActual' => $condicionLaboralActual,
-        // ]);
+        $condicionlaboral=CondicionLaboral::get();
+        return view('trabajadores.edit',compact('condicionlaboral'),[
+            'trabajadores'=>$trabajador
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(Trabajador $trabajador,CreateTrabajadoresRequest $request)
     {
-        $apellidopaterno=$request->input('Paterno-modal-trabajador');
-        $apellidomaterno=$request->input('Materno-modal-trabajador');
-        $nombres=$request->input('Nombres-modal-trabajador');
-        $dni=$request->input('Dni-modal-trabajador');
-        $sexo=$request->input('Sexo-modal-trabajador');
-        $fechanacimiento=$request->input('FechaNacimiento-modal-trabajador');
-        $condicionlaboral=$request->input('idCondicionLaboral-modal-trabajador');
-        $idtrabajador=$request->input('idTrabajador');
-        Trabajador::where('idTrabajador',$idtrabajador)->update([
-            'ApellidoPaterno'=>$apellidopaterno,
-            'ApellidoMaterno'=>$apellidomaterno,
-            'Nombres'=>$nombres,
-            'Dni'=>$dni,
-            'Sexo'=>$sexo,
-            'FechaNacimiento'=>$fechanacimiento,
-            'idCondicionLaboral'=>$condicionlaboral
-        ]);
-
+        $trabajador->update($request->validated());
         return redirect()->route('trabajadores.index')->with('success','Trabajador Actualizado Correctamente');
+        // $apellidopaterno=$request->input('Paterno-modal-trabajador');
+        // $apellidomaterno=$request->input('Materno-modal-trabajador');
+        // $nombres=$request->input('Nombres-modal-trabajador');
+        // $dni=$request->input('Dni-modal-trabajador');
+        // $sexo=$request->input('Sexo-modal-trabajador');
+        // $fechanacimiento=$request->input('FechaNacimiento-modal-trabajador');
+        // $condicionlaboral=$request->input('idCondicionLaboral-modal-trabajador');
+        // $idtrabajador=$request->input('idTrabajador');
+        // Trabajador::where('idTrabajador',$idtrabajador)->update([
+        //     'ApellidoPaterno'=>$apellidopaterno,
+        //     'ApellidoMaterno'=>$apellidomaterno,
+        //     'Nombres'=>$nombres,
+        //     'Dni'=>$dni,
+        //     'Sexo'=>$sexo,
+        //     'FechaNacimiento'=>$fechanacimiento,
+        //     'idCondicionLaboral'=>$condicionlaboral
+        // ]);
+
+        // return redirect()->route('trabajadores.index')->with('success','Trabajador Actualizado Correctamente');
 
 
     }

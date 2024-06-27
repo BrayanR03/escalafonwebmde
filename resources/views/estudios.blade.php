@@ -20,7 +20,7 @@
 
     <!-- Contenedor de resultados -->
     <div class="results-container">
-        <h3>Registro de Estudios</h3><br>
+        <h3>Listado de Estudios</h3><br>
         <table>
             <thead>
                 <tr>

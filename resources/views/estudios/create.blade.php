@@ -8,7 +8,7 @@
         <div class="form-cuadro-estudio">
             <!-- Descripción del Estudio -->
             <form action="{{route('estudios.store')}}" method="POST">
-                @include('partials.form-estudio',['btnText'=>'Guardar'])
+                @include('partials.form-estudio',['btnText'=>'Registrar'])
                 {{-- <br><input id="btn-guardar-estudio" type="submit" value="Guardar" class="btn-guardar">&nbsp;<a class="cancelar-actualizacion" href="{{route('estudios.index')}}">Cancelar</a><br> --}}
             </form>
         </div>

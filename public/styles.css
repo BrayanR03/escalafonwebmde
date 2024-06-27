@@ -1025,6 +1025,156 @@ body {
 .estudios a.cancelar-actualizacion:hover {
     background-color: #0056b3;
 } 
+/*estilo registro / actualizacion trabajadores*/
+
+/* Container Principal */
+.form-container-trabajador {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Título */
+.form-container-trabajador h2 {
+    /* text-align: center; */
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Flexbox para el Formulario */
+.form-columns-trabajador {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Estilos del Cuadro del Formulario */
+.form-cuadro-trabajador {
+    width: 100%;
+    /* max-width: 600px; */
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Flexbox para Formulario */
+.form-cuadro-trabajador form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* Grupos de Formulario */
+.form-cuadro-trabajador .form-group {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiquetas */
+.form-cuadro-trabajador .form-group label {
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Inputs y Selects */
+.form-cuadro-trabajador .form-group input[type="text"],
+.form-cuadro-trabajador .form-group input[type="date"],
+.form-cuadro-trabajador{
+    margin-bottom: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 80%;
+}
+.condicion-laboral-trabajador, .genero-trabajador {
+    margin-bottom: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 40%;
+}
+.genero-trabajador {
+    margin-bottom: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 80%;
+}
+/* Full Width */
+.form-cuadro-trabajador .full-width {
+    flex: 1 1 100%;
+}
+
+/* Botón de Registrar */
+.form-cuadro-trabajador button.btn-guardar-trabajador {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: baseline;
+    margin-top: 20px;
+}
+
+/* Hover en el Botón de Registrar */
+.form-cuadro-trabajador button.btn-guardar-trabajador:hover {
+    background-color: #218838;
+}
+
+/* Mensajes de Error */
+.form-cuadro-trabajador .validation-errors {
+    color: #d9534f;
+    margin-bottom: 16px;
+}
+
+
+/* .trabajador-cuadro-trabajadores {
+    flex: 1;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+} */
+/* .form-group-estudio, .form-group-estudio-institucion, .form-group-estudio-nivel, .form-group {
+    margin-bottom: 15px;
+}
+.form-group-estudio {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group-estudio, .trabajador-cuadro-estudio label {
+    margin-bottom: 5px;
+}
+
+.form-group-estudio input[type="text"],
+.form-group-estudio select {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+} */
+
+
+
+/*===========================================================================================*/
 
 /*estilo registro / actualizacion estudios*/
  .form-container-estudio{
@@ -1321,6 +1471,42 @@ body {
 .btn-guardar-estudio:hover {
     background-color: #0056b3;
 }
+
+
+.btn-guardar-trabajador {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-guardar-trabajador:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+/*TRABAJADORES*/
+.trabajadores .btn-nuevo-trabajador {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.trabajadores .btn-nuevo-trabajador:hover {
+    background-color: #0056b3;
+}
+
 
 /* Estilo para el botón de registrar nuevo estudio */
 .estudios .btn-nuevo-estudio {
