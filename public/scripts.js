@@ -1064,41 +1064,55 @@ $(document).ready(function() {
     //}
 // });
 
-    function editarEstudio(elemento) {
-        // Verifica que los elementos existan antes de manipularlos
-        let fila=elemento.parentNode.parentNode;
-        let idEstudioTabla = fila.cells[0].innerText;
-        let idTrabajadorTabla=fila.cells[1].innerText;
-        let apellidosTrabajadorTabla=fila.cells[2].innerText;
-        let nombresTrabajadorTabla=fila.cells[3].innerText;
-        let descripcionEstudioTabla=fila.cells[5].innerText;
-        let idInstitucionTabla=fila.cells[8].innerText;
-        let idNivelEstudiosTabla=fila.cells[6].innerText;
-        document.getElementById('idEstudio').value=idEstudioTabla;
-        document.getElementById('idTrabajador').value=idTrabajadorTabla;
-        document.getElementById('Apellidos').value=apellidosTrabajadorTabla;
-        document.getElementById('Nombres').value=nombresTrabajadorTabla;
-        document.getElementById('Descripcion').value=descripcionEstudioTabla;
-        document.getElementById('idInstitucion').value=idInstitucionTabla;
-        document.getElementById('idNivelEstudios').value=idNivelEstudiosTabla;
-        document.getElementById('btn-guardar-estudio').value='Actualizar';
-        // let descripcionInput = document.getElementById('Descripcion');
-        // let idTrabajadorInput = document.getElementById('idTrabajador');
-        // let idNivelEstudiosSelect = document.getElementById('idNivelEstudios');
-        // let idInstitucionSelect = document.getElementById('idInstitucion');
-        // let nombresInput = document.getElementById('Nombres');
-        // let apellidosInput = document.getElementById('Apellidos');
-        
-        // if (idEstudioInput && descripcionInput && idTrabajadorInput && idNivelEstudiosSelect && idInstitucionSelect && nombresInput && apellidosInput) {
-        //     // Asigna los valores a los campos del formulario
-        //     idEstudioInput.value = idEstudio;
-        //     descripcionInput.value = descripcion;
-        //     idTrabajadorInput.value = idTrabajador;
-        //     idNivelEstudiosSelect.value = idNivelEstudios;
-        //     idInstitucionSelect.value = idInstitucion;
-        //     nombresInput.value = nombres;
-        //     apellidosInput.value = apellidos;
-        // } else {
-        //     console.error('No se encontraron todos los elementos necesarios para editar el estudio.');
-        // }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const openModalButtons = document.querySelectorAll('.eliminar-btn-estudio');
+    const modal = document.querySelector('.modal-eliminar');
+    const closeModaleliminar = document.querySelector('.modal__close__eliminar');
+    const idEstudioInput = document.querySelector('#idEstudioEliminar');
+    const nombreTrabajadorInput = document.querySelector('#NombreTrabajadorEliminar');
+    const descripcionEstudioInput = document.querySelector('#EstudioTrabajadorEliminar');
+    //const editform = document.querySelector('#editform');
+
+    if (openModalButtons.length > 0 && modal && closeModaleliminar) {
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('modal--show');
+                console.log("DISTE CLICK EN ELIMINAR");
+
+                const idestudio = button.dataset.id;
+                const trabajador = button.dataset.trabajador;
+                const descripcion=button.dataset.estudio;
+                idEstudioInput.value=idestudio;
+                nombreTrabajadorInput.value=trabajador;
+                descripcionEstudioInput.value=descripcion;
+
+            });
+        });
+
+        closeModaleliminar.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('modal--show');
+        });
+    } else {
+        console.error('No se encontraron todos los elementos necesarios en el DOM.');
     }
+});
+
+// Obtener el elemento de la alerta
+document.addEventListener('DOMContentLoaded', function () {
+    var alert = document.querySelector('.alert');
+
+    if (alert) {
+        // Agregar clase de desvanecimiento después de un cierto tiempo
+        setTimeout(function () {
+            alert.classList.add('fade-out');
+        }, 850); // Cambia este valor (en milisegundos) según la duración que desees
+
+        // Eliminar la alerta del DOM después de que termine la animación de desvanecimiento
+        alert.addEventListener('transitionend', function () {
+            alert.remove();
+        });
+    }
+});

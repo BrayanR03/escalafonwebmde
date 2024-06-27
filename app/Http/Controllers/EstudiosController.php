@@ -69,24 +69,38 @@ class EstudiosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Estudio $estudio)
     {
-        //
+                
+        $instituciones = Institucion::get();
+        $nivelestudios = NivelEstudio::get();
+        return view('estudios.edit',compact('instituciones','nivelestudios'),[
+            'estudios'=>$estudio
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Estudio $estudio,CreateEstudiosRequest $request)
     {
-        //
+        $estudio->update($request->validated());
+        return redirect()->route('estudios.index')->with('success','Estudios del Trabajador Actualizados Correctamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $idestudio=$request->input('idEstudioEliminar');
+        $estudio=Estudio::find($idestudio);
+        if ($estudio) {
+            $estudio->delete();
+            return redirect()->route('estudios.index')->with('success','Estudio del Trabajador Eliminado Correctamente');
+        } else {
+            return redirect()->route('estudios.index')->with('success','No se encontro el estudio');
+            
+        }
     }
 }

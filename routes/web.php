@@ -77,6 +77,7 @@ Route::resource('estudios','App\Http\Controllers\EstudiosController')->names('es
 Route::get('estudios','App\Http\Controllers\EstudiosController@index')->name('estudios.index');
 Route::get('/buscar-trabajador', 'App\Http\Controllers\TrabajadoresController@buscarTrabajador')->name('buscarTrabajador');
 Route::get('/estudios/search', [EstudiosController::class, 'show'])->name('estudios.search');
+Route::delete('/estudios/eliminar','App\Http\Controllers\EstudiosController@destroy')->name('estudios.destroy');
 
 /*
 Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');

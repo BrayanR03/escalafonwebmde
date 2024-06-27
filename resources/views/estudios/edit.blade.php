@@ -1,14 +1,15 @@
 @extends('layout')
-@section('title','Registrar Estudio')
+@section('title','Editar Estudio')
 @section('content')
 <div class="form-container-estudio">
-    <h2>Registrar Estudio</h2>
+    <h2>Editar Estudio</h2>
     <div class="form-columns-estudio">
         <!-- Cuadro de descripción, institución y nivel de estudios -->
         <div class="form-cuadro-estudio">
             <!-- Descripción del Estudio -->
-            <form action="{{route('estudios.store')}}" method="POST">
-                @include('partials.form-estudio',['btnText'=>'Guardar'])
+            <form action="{{route('estudios.update',$estudios)}}" method="POST">
+                @method('PATCH')
+                @include('partials.form-estudio',['btnText'=>'Actualizar'])
                 {{-- <br><input id="btn-guardar-estudio" type="submit" value="Guardar" class="btn-guardar">&nbsp;<a class="cancelar-actualizacion" href="{{route('estudios.index')}}">Cancelar</a><br> --}}
             </form>
         </div>
@@ -30,11 +31,11 @@
                 </div>
                 <div class="form-group">
                     <label for="nombres">Nombres:</label>
-                    <input type="text" class="input-buscar-trabajador-estudios" required id="Nombres" autocomplete="off" name="Nombres" value="" placeholder="Nombres del trabajador" readonly>
+                    <input type="text" value="{{old('Nombres',$estudios->trabajador->Nombres)}}" class="input-buscar-trabajador-estudios" required id="Nombres" autocomplete="off" name="Nombres" value="" placeholder="Nombres del trabajador" readonly>
                 </div>
                 <div class="form-group">
                     <label for="apellidos">Apellidos:</label>
-                    <input type="text" class="input-buscar-trabajador-estudios" required id="Apellidos" autocomplete="off" name="Apellidos" value="" placeholder="Apellidos del trabajador" readonly>
+                    <input type="text" value="{{old('apellidoscompletos',$estudios->trabajador->ApellidoPaterno.' '.$estudios->trabajador->ApellidoMaterno)}}" class="input-buscar-trabajador-estudios" required id="Apellidos" autocomplete="off" name="Apellidos" value="" placeholder="Apellidos del trabajador" readonly>
                 </div>
             </div>
         </div>

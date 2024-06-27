@@ -43,15 +43,18 @@
                         <td hidden>{{$estudio->trabajador->idTrabajador}}</td>
                         <td hidden>{{$estudio->trabajador->ApellidoPaterno.' '.$estudio->ApellidoMaterno}}</td>
                         <td hidden>{{$estudio->trabajador->Nombres}}</td>
-                        <td>{{$estudio->trabajador->ApellidoPaterno.' '.$estudio->trabajador->ApellidoMaterno.', '.$estudio->trabajador->Nombres}}</td>
+                        <td>{{$estudio->trabajador->apellidoscompletos=$estudio->trabajador->ApellidoPaterno.' '.$estudio->trabajador->ApellidoMaterno.', '.$estudio->trabajador->Nombres}}</td>
                         <td>{{$estudio->Descripcion}}</td>
                         <td hidden>{{$estudio->nivelestudios->idNivelEstudios}}</td>
                         <td>{{$estudio->nivelestudios->Descripcion}}</td>
                         <td hidden>{{$estudio->institucion->idInstitucion}}</td>
                         <td>{{$estudio->institucion->Nombre}}</td>
                         <td>
-                            <a href="javascript:void(0)" onclick="editarEstudio(this)">Editar</a> 
-                            <a href="">Eliminar</a>
+                            {{-- <a href="javascript:void(0)" onclick="editarEstudio(this)">Editar</a>  --}}
+                            <a href="{{route('estudios.edit',$estudio)}}">Editar</a>
+                            <a href="" class="eliminar-btn-estudio" data-id="{{$estudio->idEstudios}}"
+                                data-trabajador="{{$estudio->trabajador->ApellidoPaterno.' '.$estudio->trabajador->ApellidoMaterno.', '.$estudio->trabajador->Nombres}}"
+                                data-estudio="{{$estudio->Descripcion}}">Eliminar</a>
                         </td>
                     </tr>
                 @endforeach
@@ -65,6 +68,21 @@
         <!-- Botón para registrar nuevo estudio -->
         <a href="{{ route('estudios.create') }}" class="btn-nuevo-estudio">Registrar Nuevo Estudio</a>
     </div>
+    <section class="modal-eliminar">
+        <div class="modal__container_eliminar">
+            <h4 class="modal__title">ELIMINAR ESTUDIO</h4>
+            <form id="editform" action="{{route('estudios.destroy')}}" method="post">
+                @csrf
+                @method('DELETE')
+                <p>¿Deseas Eliminar el estudio del Trabajador?</p><br>
+                <input type="text" id="NombreTrabajadorEliminar" class="NombreTrabajadorEliminar" readonly>
+                <input type="text" id="EstudioTrabajadorEliminar" class="EstudioTrabajadorEliminar" readonly>
+                <input type="text" id="idEstudioEliminar" name="idEstudioEliminar" class="idEstudioEliminar" hidden readonly>
+                <button class="modal__eliminar">CONFIRMAR</button>
+                <button class="modal__close__eliminar">CANCELAR</button>
+            </form>
+        </div>
+    </section>
 </div>
 
 <!-- Modal para editar estudio -->
