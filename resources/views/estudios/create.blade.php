@@ -18,8 +18,8 @@
             <!-- Formulario de búsqueda de trabajadores -->
             <form class="search-form-estudio" action="{{route('buscarTrabajador')}}" id="search-form-estudio" name="search-form-estudio" method="GET">
                 <label for="search">Buscar Trabajador:</label>
-                <input type="text" class="search" id="search" autocomplete="off" required name="search" placeholder="Ingrese DNI del trabajador">
-                <input id="buscar-trabajador-estudio" type="submit" value="Buscar">
+                <input type="text" class="search input-buscar-trabajador-estudios"  id="search" autocomplete="off" required name="search" placeholder="Ingrese DNI del trabajador">
+                <input class="buscar-trabajador-estudio" type="submit" value="Buscar">
             </form>
             
             <!-- Información del trabajador -->
@@ -30,11 +30,11 @@
                 </div>
                 <div class="form-group">
                     <label for="nombres">Nombres:</label>
-                    <input type="text" required id="Nombres" autocomplete="off" name="Nombres" value="" placeholder="Nombres del trabajador" readonly>
+                    <input type="text" class="input-buscar-trabajador-estudios" required id="Nombres" autocomplete="off" name="Nombres" value="" placeholder="Nombres del trabajador" readonly>
                 </div>
                 <div class="form-group">
                     <label for="apellidos">Apellidos:</label>
-                    <input type="text" required id="Apellidos" autocomplete="off" name="Apellidos" value="" placeholder="Apellidos del trabajador" readonly>
+                    <input type="text" class="input-buscar-trabajador-estudios" required id="Apellidos" autocomplete="off" name="Apellidos" value="" placeholder="Apellidos del trabajador" readonly>
                 </div>
             </div>
         </div>

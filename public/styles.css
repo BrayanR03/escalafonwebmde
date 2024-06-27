@@ -931,7 +931,7 @@ body {
 
 
 /*ESTILO GESTION ESTUDIOS*/
-/* 
+ 
 .estudios{
     background-color: #fff;
     padding: 20px;
@@ -1024,10 +1024,10 @@ body {
 
 .estudios a.cancelar-actualizacion:hover {
     background-color: #0056b3;
-} */
+} 
 
 /*estilo registro / actualizacion estudios*/
-/* .form-container-estudio{
+ .form-container-estudio{
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -1075,10 +1075,10 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-} */
+}
 
 /*FORMULARIO DE ESTUDIO-INSTITUCION*/
-/* .form-group-estudio-institucion {
+.form-group-estudio-institucion {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -1095,9 +1095,9 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-} */
+}
 /*FORMULARIO DE ESTUDIO-NIVEL ESTUDIOS*/
-/* .form-group-estudio-nivel {
+.form-group-estudio-nivel {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -1114,9 +1114,9 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-} */
+}
 /* Estilo registro / actualización estudios */
-/* .form-container-estudio {
+.form-container-estudio {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -1125,9 +1125,9 @@ body {
     height: 85%;
     margin: 85px 35px 85px 35px;
     padding: 40px;
-} */
+}
 
-/* .form-columns-estudio {
+.form-columns-estudio {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -1160,37 +1160,38 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-} */
+}
 
 
-/* 
+
 .form-container-estudio {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-bottom: 20px;
-} */
-/* .form-cuadro-estudio{
+    flex-direction: column;
+}
+.form-cuadro-estudio{
     background-color: #f9f9f9;
     padding: 17px;
     border-radius: 8px;
     width: 48%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-} */
-/* .trabajador-cuadro-estudio {
+}
+.trabajador-cuadro-estudio {
     background-color: #f9f9f9;
     padding: 15px;
     border-radius: 8px;
     width: 48%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-} */
+}
 
 /*BUSCAR TRABAJADOR MODULO ESTUDIOS*/
 
 
 
 
-/* .form-group-estudio {
+.form-group-estudio {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -1207,9 +1208,9 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-} */
+}
 /*FORMULARIO DE ESTUDIO-INSTITUCION*/
-/* .form-group-estudio-institucion {
+.form-group-estudio-institucion {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -1226,9 +1227,9 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-} */
+}
 /*FORMULARIO DE ESTUDIO-NIVEL ESTUDIOS*/
-/* .form-group-estudio-nivel {
+.form-group-estudio-nivel {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -1245,7 +1246,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-} */
+}
 .pagination {
     display: flex;
     justify-content: center;
@@ -1328,7 +1329,27 @@ body {
     background-color: #0056b3;
 }
 
+.buscar-trabajador-estudio:hover {
+    background-color: #0056b3;
+}
 
+.buscar-trabajador-estudio {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 20px;
+}
+.input-buscar-trabajador-estudios{
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 /* .estudios {
     background-color: #fff;
     padding: 20px;
