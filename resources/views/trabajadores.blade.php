@@ -32,26 +32,30 @@
                 <th>DNI</th>
                 <th>Sexo</th>
                 <th>Fecha de Nacimiento</th>
+                <th hidden>ID Condicion Laboral</th>
                 <th>Condición Laboral</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         @if ($trabajadores->count())
         <tbody>
-            @foreach ($trabajadores as $trabajador)
+            @foreach ($trabajadores as $trabajadore)
             <tr>
-                <td>{{$trabajador->idTrabajador}}</td>
-                <td>{{$trabajador->ApellidoPaterno}}</td>
-                <td>{{$trabajador->ApellidoMaterno}}</td>
-                <td>{{$trabajador->Nombres}}</td>
-                <td>{{$trabajador->Dni}}</td>
-                <td>{{$trabajador->Sexo}}</td>
-                <td>{{$trabajador->FechaNacimiento}}</td>
-                <td hidden>{{$trabajador->condicionLaboral->idCondicionLaboral}}</td>
-                <td>{{$trabajador->condicionLaboral->Descripcion}}</td>
+                <td>{{$trabajadore->idTrabajador}}</td>
+                <td>{{$trabajadore->ApellidoPaterno}}</td>
+                <td>{{$trabajadore->ApellidoMaterno}}</td>
+                <td>{{$trabajadore->Nombres}}</td>
+                <td>{{$trabajadore->Dni}}</td>
+                <td>{{$trabajadore->Sexo}}</td>
+                <td>{{$trabajadore->FechaNacimiento}}</td>
+                <td hidden>{{$trabajadore->condicionLaboral->idCondicionLaboral}}</td>
+                <td>{{$trabajadore->condicionLaboral->Descripcion}}</td>
                 <td>
-                    <a href="{{route('trabajadores.edit',$trabajador)}}" >Editar</a> 
-                    <a href="" >Eliminar</a>
+                    <a href="{{route('trabajadores.edit',$trabajadore)}}" >Editar</a> 
+                    <a href="" class="eliminar-btn-trabajador" data-id="{{$trabajadore->idTrabajador}}" data-apellidos="{{$trabajadore->ApellidoPaterno.' '.$trabajadore->ApellidoMaterno}}"
+                        {{-- data-nombres="{{$trabajadore->Nombres}}" >Eliminar</a> --}}
+                        {{-- OMITIMOS LA OPCION ELIMINAR, PORQUE NO DESEAMOS ELIMINAR UN TRABAJADOR, ADEMAS, ESTE TRBAJADOR ESTA ASOCIADO A ESTUDIOS,
+                        LO CUALES DEBEN SER ELIMINADOS PRIMEROS, PARA ELIMINAR ESTE TRABAJADOR--}}
                 </td>
             </tr>
             @endforeach
@@ -62,6 +66,21 @@
     <a href="{{route('trabajadores.create')}}" class="btn-nuevo-trabajador">Registrar Nuevo Trabajador</a>    
     </div>
     
+    
+    <section class="modal-eliminar">
+        <div class="modal__container_eliminar">
+            <h4 class="modal__title">ELIMINAR TRABAJADOR</h4>
+            <form id="editform" action="{{route('trabajadores.destroy')}}" method="post">
+                @csrf
+                @method('DELETE')
+                <p>¿Deseas Eliminar al Trabajador?</p>
+                <input type="text" id="NombreTrabajadorEliminar" class="NombreTrabajadorEliminar" readonly>
+                <input type="text" id="idTrabajadorEliminar" name="idTrabajadorEliminar" class="idTrabajadorEliminar" readonly style="display: none">
+                <button class="modal__eliminar">CONFIRMAR</button>
+                <button class="modal__close__eliminar">CANCELAR</button>
+            </form>
+        </div>
+    </section>
     
 </div>
 @endsection

@@ -27,7 +27,7 @@ class TrabajadoresController extends Controller
     {
         $condicionlaboral=CondicionLaboral::get();
         return view('trabajadores.create',compact('condicionlaboral'),[
-            'trabajadores'=>new Trabajador
+            'trabajadore'=>new Trabajador
         ]);
     }
 
@@ -36,8 +36,8 @@ class TrabajadoresController extends Controller
      */
     public function store(CreateTrabajadoresRequest $request)
     {
-        $trabajadores=new Trabajador($request->validated());
-        $trabajadores->save();
+        $trabajadore=new Trabajador($request->validated());
+        $trabajadore->save();
         return redirect()->route('trabajadores.index');
     }
 
@@ -72,30 +72,26 @@ class TrabajadoresController extends Controller
                 'Nombres'=>$trabajador->Nombres,
                 'Apellidos'=>$trabajador->ApellidoPaterno .', '. $trabajador->ApellidoMaterno
             ]);
-        }else{
-            // return redirect()->route('estudios.index');
-            // return redirect()->route('estudios.index')->with('success','Trabajador No Encontrado');
-            
         }
     }
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Trabajador $trabajador)
+    public function edit(Trabajador $trabajadore)
     {
-        
+        // dd($trabajadores);
         $condicionlaboral=CondicionLaboral::get();
         return view('trabajadores.edit',compact('condicionlaboral'),[
-            'trabajadores'=>$trabajador
+            'trabajadore'=>$trabajadore
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Trabajador $trabajador,CreateTrabajadoresRequest $request)
+    public function update(Trabajador $trabajadore,CreateTrabajadoresRequest $request)
     {
-        $trabajador->update($request->validated());
+        $trabajadore->update($request->validated());
         return redirect()->route('trabajadores.index')->with('success','Trabajador Actualizado Correctamente');
         // $apellidopaterno=$request->input('Paterno-modal-trabajador');
         // $apellidomaterno=$request->input('Materno-modal-trabajador');
@@ -126,9 +122,9 @@ class TrabajadoresController extends Controller
     public function destroy(Request $request)
     {
         $idtrabajador=$request->input('idTrabajadorEliminar');
-        $trabajador=Trabajador::find($idtrabajador);
-        if ($trabajador) {
-            $trabajador->delete();
+        $trabajadore=Trabajador::find($idtrabajador);
+        if ($trabajadore) {
+            $trabajadore->delete();
             return redirect()->route('trabajadores.index')->with('success','Trabajador Eliminado Correctamente');
         } else {
             return redirect()->route('trabajadores.index')->with('success','No se encontro el trabajador');

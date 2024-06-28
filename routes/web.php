@@ -68,7 +68,15 @@ Route::delete('/institucion/eliminar','App\Http\Controllers\InstitucionControlle
 
 
 Route::resource('trabajadores','App\Http\Controllers\TrabajadoresController')->names('trabajadores');
+// Route::get('trabajadores','App\Http\Controllers\TrabajadoresController@index')->name('trabajadores.index');
+// Route::get('trabajadores/crear','App\Http\Controllers\TrabajadoresController@create')->name('trabajadores.create');
+// Route::get('trabajadores/{idTrabajador}/editar','App\Http\Controllers\TrabajadoresController@edit')->name('trabajadores.edit');
+// Route::patch('trabajadores/{trabajadores}','App\Http\Controllers\TrabajadoresController@update')->name('trabajadores.update');
+// Route::post('trabajadores','App\Http\Controllers\TrabajadoresController@store')->name('trabajadores.store');
+// Route::get('trabajadores/{idTrabajador','App\Http\Controllers\TrabajadoresController@show')->name('trabajadores.show');
 Route::get('/trabajadores/search', [TrabajadoresController::class, 'show'])->name('trabajadores.search');
+Route::delete('/trabajadores/eliminar','App\Http\Controllers\TrabajadoresController@destroy')->name('trabajadores.destroy');
+
 // Route::get('/trabajadores/actualizar','App\Http\Controllers\TrabajadoresController@update')->name('trabajadores.update');
 // Route::delete('/trabajadores/eliminar','App\Http\Controllers\TrabajadoresController@destroy')->name('trabajadores.destroy');
 

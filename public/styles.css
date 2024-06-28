@@ -1132,7 +1132,7 @@ body {
 
 /* Hover en el Botón de Registrar */
 .form-cuadro-trabajador button.btn-guardar-trabajador:hover {
-    background-color: #218838;
+    background-color: #0056b3;
 }
 
 /* Mensajes de Error */

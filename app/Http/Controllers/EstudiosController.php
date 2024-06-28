@@ -71,7 +71,7 @@ class EstudiosController extends Controller
      */
     public function edit(Estudio $estudio)
     {
-                
+        
         $instituciones = Institucion::get();
         $nivelestudios = NivelEstudio::get();
         return view('estudios.edit',compact('instituciones','nivelestudios'),[

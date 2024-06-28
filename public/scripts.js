@@ -830,88 +830,88 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*================MODAL DE TRABAJADOR============================== */
 
-document.addEventListener('DOMContentLoaded', () => {
-    const openModalButtons = document.querySelectorAll('.editar-btn-trabajador');
-    const modal = document.querySelector('.modal');
-    const closeModal = document.querySelector('.modal__close');
-    const idAreaInput = document.querySelector('#idTrabajador');
-    const nombreInput = document.querySelector('#Nombres-modal-trabajador');
-    const paternoInput = document.querySelector('#Paterno-modal-trabajador');
-    const maternoInput = document.querySelector('#Materno-modal-trabajador');
-    const dniInput = document.querySelector('#Dni-modal-trabajador');
-    const sexoInput=document.querySelector('#Sexo-modal-trabajador');
-    const fechaNacimientoInput=document.querySelector('#FechaNacimiento-modal-trabajador');
-    const condicionlaboralInput=document.querySelector('#idCondicionLaboral-modal-trabajador');
-    const opcionesSelect = condicionlaboralInput.querySelectorAll('#option-descripcion-condicion');
+// document.addEventListener('DOMContentLoaded', () => {
+//     const openModalButtons = document.querySelectorAll('.editar-btn-trabajador');
+//     const modal = document.querySelector('.modal');
+//     const closeModal = document.querySelector('.modal__close');
+//     const idAreaInput = document.querySelector('#idTrabajador');
+//     const nombreInput = document.querySelector('#Nombres-modal-trabajador');
+//     const paternoInput = document.querySelector('#Paterno-modal-trabajador');
+//     const maternoInput = document.querySelector('#Materno-modal-trabajador');
+//     const dniInput = document.querySelector('#Dni-modal-trabajador');
+//     const sexoInput=document.querySelector('#Sexo-modal-trabajador');
+//     const fechaNacimientoInput=document.querySelector('#FechaNacimiento-modal-trabajador');
+//     const condicionlaboralInput=document.querySelector('#idCondicionLaboral-modal-trabajador');
+//     const opcionesSelect = condicionlaboralInput.querySelectorAll('#option-descripcion-condicion');
 
-    //const editform = document.querySelector('#editform');
+//     //const editform = document.querySelector('#editform');
 
-    if (openModalButtons.length > 0 && modal && closeModal) {
-        openModalButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                modal.classList.add('modal--show');
-                console.log("DISTE CLICK EN EDITAR");
+//     if (openModalButtons.length > 0 && modal && closeModal) {
+//         openModalButtons.forEach(button => {
+//             button.addEventListener('click', (e) => {
+//                 e.preventDefault();
+//                 modal.classList.add('modal--show');
+//                 console.log("DISTE CLICK EN EDITAR");
 
-                // Obtener el ID del área y otros datos para rellenar el modal de la tabla
-                const areaId = button.dataset.id;
-                const paterno = button.dataset.paterno;
-                const materno = button.dataset.materno;
-                const nombres = button.dataset.nombres;
-                const dni = button.dataset.dni;
-                const sexo=button.dataset.sexo;
-                const fechanacimiento=button.dataset.fechanacimiento;
-                const condicionlaboral=button.dataset.condicionlaboralid;
+//                 // Obtener el ID del área y otros datos para rellenar el modal de la tabla
+//                 const areaId = button.dataset.id;
+//                 const paterno = button.dataset.paterno;
+//                 const materno = button.dataset.materno;
+//                 const nombres = button.dataset.nombres;
+//                 const dni = button.dataset.dni;
+//                 const sexo=button.dataset.sexo;
+//                 const fechanacimiento=button.dataset.fechanacimiento;
+//                 const condicionlaboral=button.dataset.condicionlaboralid;
                 
-                // Rellenar los campos del modal con los datos del área
-                idAreaInput.value = areaId;
-                nombreInput.value = nombres;
-                paternoInput.value = paterno;
-                maternoInput.value = materno;
-                dniInput.value = dni;
-                sexoInput.value=sexo;
-                fechaNacimientoInput.value=fechanacimiento;
-                // condicionlaboralInput.value=condicionlaboral;
+//                 // Rellenar los campos del modal con los datos del área
+//                 idAreaInput.value = areaId;
+//                 nombreInput.value = nombres;
+//                 paternoInput.value = paterno;
+//                 maternoInput.value = materno;
+//                 dniInput.value = dni;
+//                 sexoInput.value=sexo;
+//                 fechaNacimientoInput.value=fechanacimiento;
+//                 // condicionlaboralInput.value=condicionlaboral;
                 
-                console.log("============VALORES DEL SELECT DEL MODAL==============");
-                opcionesSelect.forEach(opcion=>{
+//                 console.log("============VALORES DEL SELECT DEL MODAL==============");
+//                 opcionesSelect.forEach(opcion=>{
                     
-                    if(condicionlaboral===opcion.value){
-                        console.log("==================IGUALESSS");
-                        opcion.selected=true;
-                    }
+//                     if(condicionlaboral===opcion.value){
+//                         console.log("==================IGUALESSS");
+//                         opcion.selected=true;
+//                     }
                     
-                });
+//                 });
 
-                // opcionesSelect.forEach(opcion => {
-                //   if(opcion==="PRUEBA1-CONDICIONLAB"){
-                //     opcion.selected=true;
-                //   }  
-                //     // if (condicionlaboralInput.value ===opcion.value ) {
-                //     //   opcion.selected = true;
-                //     // }
-                //   }
-                // )
-                // ;
-                // editform.action='/areas/${idArea}';
-            });
-        });
+//                 // opcionesSelect.forEach(opcion => {
+//                 //   if(opcion==="PRUEBA1-CONDICIONLAB"){
+//                 //     opcion.selected=true;
+//                 //   }  
+//                 //     // if (condicionlaboralInput.value ===opcion.value ) {
+//                 //     //   opcion.selected = true;
+//                 //     // }
+//                 //   }
+//                 // )
+//                 // ;
+//                 // editform.action='/areas/${idArea}';
+//             });
+//         });
 
-        closeModal.addEventListener('click', (e) => {
-            e.preventDefault();
-            modal.classList.remove('modal--show');
-        });
-    } else {
-        console.error('No se encontraron todos los elementos necesarios en el DOM.');
-    }
-});
+//         closeModal.addEventListener('click', (e) => {
+//             e.preventDefault();
+//             modal.classList.remove('modal--show');
+//         });
+//     } else {
+//         console.error('No se encontraron todos los elementos necesarios en el DOM.');
+//     }
+// });
 
 document.addEventListener('DOMContentLoaded', () => {
     const openModalButtons = document.querySelectorAll('.eliminar-btn-trabajador');
     const modal = document.querySelector('.modal-eliminar');
     const closeModaleliminar = document.querySelector('.modal__close__eliminar');
-    const idAreaInput = document.querySelector('#idTrabajadorEliminar');
-    const nombreInput = document.querySelector('#NombreTrabajadorEliminar');
+    const idTrabajadorInput = document.querySelector('#idTrabajadorEliminar');
+    const nombreTrabajadorInput = document.querySelector('#NombreTrabajadorEliminar');
     //const editform = document.querySelector('#editform');
 
     if (openModalButtons.length > 0 && modal && closeModaleliminar) {
@@ -921,10 +921,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 modal.classList.add('modal--show');
                 console.log("DISTE CLICK EN ELIMINAR");
 
-                const idareaget = button.dataset.id;
-                idAreaInput.value = idareaget;
+                const idtrabajadorget = button.dataset.id;
+                idTrabajadorInput.value = idtrabajadorget;
                 const trabajador = button.dataset.apellidos+", "+button.dataset.nombres;
-                nombreInput.value = trabajador;
+                nombreTrabajadorInput.value = trabajador;
                 // editform.action='/areas/${idArea}';
             });
         });
