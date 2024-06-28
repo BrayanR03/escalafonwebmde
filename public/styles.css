@@ -929,6 +929,110 @@ body {
     border-color: #c3e6cb;
 }
 
+/*GESTION EXPERIENCIAS ESTILOS*/
+
+.experiencia{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 85%;
+    width: 95%;
+    margin-left: 30px;
+}
+
+.experiencia form {
+    margin-bottom: 20px;
+}
+.experiencia table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.experiencia th, .experiencia td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.experiencia th {
+    background-color: #f2f2f2;
+}
+
+.experiencia input[type="text"]{
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.experiencia input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.experiencia input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.experiencia .btn-nueva-experiencia {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.experiencia .btn-nueva-experiencia:hover {
+    background-color: #0056b3;
+}
+
+.form-container-experiencia{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    height: 85%;
+    width: 95%;
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.form-container-experiencia{
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+.form-cuadro-experiencia {
+    flex: 1;
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-columns-experiencia {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    height: -webkit-fill-available;
+    
+}
+
+
+
+
 
 /*ESTILO GESTION ESTUDIOS*/
  
@@ -1281,6 +1385,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    height: -webkit-fill-available;
 }
 
 .form-cuadro-estudio {
