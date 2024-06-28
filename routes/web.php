@@ -89,7 +89,8 @@ Route::delete('/estudios/eliminar','App\Http\Controllers\EstudiosController@dest
 
 
 Route::resource('experiencias','App\Http\Controllers\ExperienciaLaboralController')->names('experiencias');
-
+Route::get('/experiencias/search', [ExperienciaLaboralController::class, 'show'])->name('experiencias.search');
+Route::delete('/experiencias/eliminar','App\Http\Controllers\ExperienciaLaboralController@destroy')->name('experiencias.destroy');
 
 
 /*

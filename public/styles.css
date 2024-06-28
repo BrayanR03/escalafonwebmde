@@ -1017,7 +1017,7 @@ body {
     flex: 1;
     margin-right: 20px;
     padding: 20px;
-    background-color: #fff;
+    background-color: #f9f9f9;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
@@ -1309,19 +1309,30 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
-.form-group-estudio, .form-group-estudio-institucion, .form-group-estudio-nivel, .form-group {
+.form-group-estudio, .form-group-estudio-institucion,
+ .form-group-estudio-nivel, .form-group, .form-group-experiencia,
+ .form-group-experiencia-institucion,
+ .form-group-experiencia-nivel {
     margin-bottom: 15px;
 }
-.form-group-estudio {
+.form-group-estudio .form-group-experiencia {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
 }
 
-.form-group-estudio, .trabajador-cuadro-estudio label {
+.form-group-estudio, .form-group-experiencia, .trabajador-cuadro-estudio label {
     margin-bottom: 5px;
 }
+.form-group-experiencia input[type="text"],
+.form-group-experiencia select{
 
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 .form-group-estudio input[type="text"],
 .form-group-estudio select {
     width: 95%;
@@ -1332,7 +1343,8 @@ body {
 }
 
 /*FORMULARIO DE ESTUDIO-INSTITUCION*/
-.form-group-estudio-institucion {
+.form-group-estudio-institucion,
+.form-group-experiencia-institucion {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -1342,9 +1354,22 @@ body {
     margin-bottom: 5px;
 }
 
+.form-group-experiencia-institucion label {
+    margin-bottom: 5px;
+}
+
 .form-group-estudio-institucion input[type="text"],
 .form-group-estudio-institucion select {
     width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group-experiencia-institucion input[type="text"],
+.form-group-experiencia-institucion select {
+    width: 80%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -1369,6 +1394,53 @@ body {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+/*=============================*/
+
+.form-group-experiencia-cargo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group-experiencia-cargo label {
+    margin-bottom: 5px;
+}
+
+.form-group-estudio-nivel input[type="text"],
+.form-group-estudio-nivel select {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group-experiencia-cargo input[type="text"],
+.form-group-experiencia-cargo select {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group-experiencia input[type="date"]{
+
+    margin-bottom: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 80%;
+}
+
+
+
+/*=============================*/
+
+
+
 /* Estilo registro / actualización estudios */
 .form-container-estudio {
     background-color: #fff;

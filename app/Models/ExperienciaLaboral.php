@@ -17,7 +17,7 @@ class ExperienciaLaboral extends Model
         return $this->belongsTo(Institucion::class,'idInstitucion');
     }
     public function cargo(){
-        return $this->belongsTo(NivelEstudio::class,'idCargo');
+        return $this->belongsTo(Cargo::class,'idCargo');
     }
     public function trabajador(){
         return $this->belongsTo(Trabajador::class,'idTrabajador');

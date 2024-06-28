@@ -1,14 +1,15 @@
 @extends('layout')
-@section('title','Registrar Experiencia Trabajador')
+@section('title','Editar Experiencia Laboral')
 @section('content')
 <div class="form-container-experiencia">
-    <h2>Registrar Estudio</h2>
+    <h2>Editar Experiencia Laboral</h2>
     <div class="form-columns-experiencia">
         <!-- Cuadro de descripción, institución y nivel de estudios -->
         <div class="form-cuadro-experiencia">
             <!-- Descripción del Estudio -->
-            <form action="{{route('experiencias.store',$experiencias)}}" method="POST">
-                @include('partials.form-experiencia',['btnText'=>'Registrar'])
+            <form action="{{route('experiencias.update',$experiencias)}}" method="POST">
+                @method('PATCH')
+                @include('partials.form-experiencia',['btnText'=>'Actualizar'])
                 {{-- <br><input id="btn-guardar-estudio" type="submit" value="Guardar" class="btn-guardar">&nbsp;<a class="cancelar-actualizacion" href="{{route('estudios.index')}}">Cancelar</a><br> --}}
             </form>
         </div>
@@ -30,11 +31,11 @@
                 </div>
                 <div class="form-group">
                     <label for="nombres">Nombres:</label>
-                    <input type="text" class="input-buscar-trabajador-estudios" required id="Nombres" autocomplete="off" name="Nombres" value="" placeholder="Nombres del trabajador" readonly>
+                    <input type="text" class="input-buscar-trabajador-estudios" required id="Nombres" autocomplete="off" name="Nombres" value="{{old('Nombres',$experiencias->trabajador->Nombres)}}" placeholder="Nombres del trabajador" readonly>
                 </div>
                 <div class="form-group">
                     <label for="apellidos">Apellidos:</label>
-                    <input type="text" class="input-buscar-trabajador-estudios" required id="Apellidos" autocomplete="off" name="Apellidos" value="" placeholder="Apellidos del trabajador" readonly>
+                    <input type="text" class="input-buscar-trabajador-estudios" required id="Apellidos" autocomplete="off" name="Apellidos" value="{{old('apellidoscompletos',$experiencias->trabajador->ApellidoPaterno.' '.$experiencias->trabajador->ApellidoMaterno)}}" placeholder="Apellidos del trabajador" readonly>
                 </div>
             </div>
         </div>

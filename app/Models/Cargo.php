@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cargo extends Model
 {
     use HasFactory;
+    protected $table='cargos';
     protected $primaryKey='idCargo';
     protected $guarded=[];
 }
