@@ -15,7 +15,7 @@
             <a class="cerrar-sesion" href="#">Cerrar Sesión</a>
         </div>
         <div class="sidebar">
-            <a class="movimientos-btn" href="#">Movimientos</a>
+            <a class="movimientos-btn" href="{{route('movimientos.index')}}">Movimientos</a>
             <a class="nivelestudios-btn" href="{{route('nivelestudio.index')}}">Nivel de Estudios</a>
             <a class="institucion-btn" href="{{route('institucion.index')}}">Institución</a>
             <a class="estudios-btn" href="{{route('estudios.index')}}">Estudios</a>

@@ -994,7 +994,31 @@ body {
 .experiencia .btn-nueva-experiencia:hover {
     background-color: #0056b3;
 }
+/*==============================ESTILOS MOVIMIENTOS*/
+.movimientos{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    height: 85%;
+    width: 95%;
+    margin-left: 30px;
+    display: flex;
+    /* justify-content: space-between; */
+    padding: 20px;
+}
 
+.movimientos{
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+
+
+
+
+/*==============================FIN ESTILOS MOVIMIENTOS*/
 .form-container-experiencia{
     background-color: #fff;
     padding: 20px;
@@ -1082,15 +1106,43 @@ body {
     border-collapse: collapse;
 }
 
+.movimientos table {
+    width: 100%;
+    border-collapse: collapse;
+}
 .estudios th, .estudios td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
 
+.movimientos th, .movimientos td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
 .estudios th {
     background-color: #f2f2f2;
 }
+
+
+.movimientos th {
+    background-color: #f2f2f2;
+}
+
+
+.movimientos input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
 
 .estudios input[type="text"],
 .estudios input[type="date"],
@@ -1102,6 +1154,22 @@ body {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+
+.movimientos input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.movimientos input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
 
 .estudios input[type="submit"] {
     background-color: #007bff;

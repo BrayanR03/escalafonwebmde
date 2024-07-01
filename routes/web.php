@@ -93,6 +93,10 @@ Route::get('/experiencias/search', [ExperienciaLaboralController::class, 'show']
 Route::delete('/experiencias/eliminar','App\Http\Controllers\ExperienciaLaboralController@destroy')->name('experiencias.destroy');
 
 
+
+
+Route::resource('movimientos','App\Http\Controllers\MovimientosController')->names('movimientos');
+Route::get('/movimientos/search', [MovimientosController::class, 'show'])->name('movimientos.search');
 /*
 Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');
 Route::resource('institucion','App\Http\Controllers\InstitucionController')->names('institucion');
