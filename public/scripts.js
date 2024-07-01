@@ -1174,3 +1174,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+
+
+
+
+
+
+
+
+/**FILTRADO EN VISTA MOVIMIENTOS */
+

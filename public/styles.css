@@ -1133,7 +1133,7 @@ body {
 }
 
 
-.movimientos input[type="text"] {
+.search {
     width: 95%;
     padding: 10px;
     margin-bottom: 15px;
@@ -1142,6 +1142,14 @@ body {
     box-sizing: border-box;
 }
 
+.NombreTrabajadorMov, .ApellidosTrabajadorMov {
+    width: 20%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
 
 .estudios input[type="text"],
@@ -1462,6 +1470,25 @@ body {
     border-radius: 4px;
     box-sizing: border-box;
 }
+/**/
+.form-group-movimiento-tipodoc {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group-movimiento-tipodoc label {
+    margin-bottom: 5px;
+}
+.form-group-movimiento-tipodoc select {
+    width: 15%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
 
 /*=============================*/
 

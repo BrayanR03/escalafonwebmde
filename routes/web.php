@@ -97,6 +97,8 @@ Route::delete('/experiencias/eliminar','App\Http\Controllers\ExperienciaLaboralC
 
 Route::resource('movimientos','App\Http\Controllers\MovimientosController')->names('movimientos');
 Route::get('/movimientos/search', [MovimientosController::class, 'show'])->name('movimientos.search');
+Route::get('/movimientos/descargar-archivo/{MovimientoID}', 'App\Http\Controllers\MovimientosController@descargarArchivo')->name('movimientos.archivo');
+
 /*
 Route::resource('condicionlaboral','App\Http\Controllers\CondicionLaboralController')->names('condicionlaboral');
 Route::resource('institucion','App\Http\Controllers\InstitucionController')->names('institucion');
